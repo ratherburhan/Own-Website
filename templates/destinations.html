@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <!--
+        - #DESTINATION
+      -->
+
+      <section class="section destination">
+        <div class="container">
+
+          <p class="section-subtitle">Destinations</p>
+
+          <h2 class="h2 section-title">Choose Your Place</h2>
+
+          <ul class="destination-list">
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='kashmir') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-1.jpg') }}" width="1140" height="1100" loading="lazy"
+                    alt="Malé, Maldives" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Srinagar</p>
+
+                  <h3 class="h3 card-title">Kashmir</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='amarnath') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-2.jpg') }}" width="1140" height="1100" loading="lazy"
+                    alt="Bangkok, Thailand" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Holy Cave</p>
+
+                  <h3 class="h3 card-title">Amarnath</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ url_for('show_tours', destination='ladakh') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-3.jpg') }}" width="1110" height="480" loading="lazy"
+                    alt="Kuala Lumpur, Malaysia" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Leh</p>
+
+                  <h3 class="h3 card-title">Ladakh</h3>
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+{% endblock %}

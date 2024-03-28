@@ -1,100 +1,33 @@
-{% include "header.html" %}
+{% from "bootstrap5/form.html" import render_form %} {% extends 'base.html' %}
+
+{% block content %}
 
 <!-- Page Header-->
-<header
-  class="masthead"
-  style="background-image: url('../static/assets/img/contact-bg.jpg')"
->
-  <div class="container position-relative px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="page-heading">
-          {% if msg_sent: %}
-          <h1>Successfully sent your message</h1>
+<section class="section popular">
+        <div class="container">
+
+          {% if not message: %}
+          <p class="section-subtitle question">Have questions? We have answers.</p>
+          <h2 class="h2 section-title" id="contact-1">Contact Us</h2>
           {% else: %}
-          <h1>Contact Me</h1>
+          <p class="section-subtitle question" id="contact-2">We will get in contact with you shortly.</p>
+          <h2 class="h2 section-title contact">Successfully sent your message</h2>
           {% endif %}
-          <span class="subheading">Have questions? I have answers.</span>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+</section>
+
 <!-- Main Content-->
 <main class="mb-4">
-  <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <p>
-          Want to get in touch? Fill out the form below to send me a message and
-          I will get back to you as soon as possible!
-        </p>
-        <div class="my-5">
-          <!-- * * * * * * * * * * * * * * *-->
-          <!-- * * Simplified SB Contact Form for the Tutorial* *-->
-          <form
-            id="contactForm"
-            name="sentMessage"
-            action="{{ url_for('contact') }}"
-            method="post"
-          >
-            <div class="form-floating">
-              <input
-                class="form-control"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Enter your name..."
-                required
-              />
-              <label for="name">Name</label>
-            </div>
-            <div class="form-floating">
-              <input
-                class="form-control"
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Enter your email..."
-                required
-              />
-              <label for="email">Email address</label>
-            </div>
-            <div class="form-floating">
-              <input
-                class="form-control"
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter your phone number..."
-                required
-              />
-              <label for="phone">Phone Number</label>
-            </div>
-            <div class="form-floating">
-              <textarea
-                class="form-control"
-                id="message"
-                name="message"
-                placeholder="Enter your message here..."
-                required
-                style="height: 12rem"
-              ></textarea>
-              <label for="message">Message</label>
-            </div>
-            <br />
-            <button
-              class="btn btn-danger text-uppercase"
-              id="submitButton"
-              type="submit"
-            >
-              NOT USED in Day 69
-            </button>
-          </form>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {{ ckeditor.load() }} {{ ckeditor.config(name='message') }} {{
+        render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
       </div>
     </div>
   </div>
 </main>
 
-{% include "footer.html" %}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.1300347114147!2d74.85974257404693!3d34.168592911580554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1856edfd8f587%3A0x57c18c6ad310d895!2sWanderwell%20Travels!5e0!3m2!1sen!2sin!4v1711437649237!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+{% endblock %}

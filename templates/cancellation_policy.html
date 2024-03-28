@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container px-4 py-5" id="custom-cards">
+<h2 class="pb-2 border-bottom h2 section-title">Cancellation Policy</h2>
+
+<table class="table table-bordered table-striped cancel">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2">Cancellation and Refund Timelines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <td>60 days pre-travel date</td>
+      <td>80% amount will be refunded of total package cost</td>
+
+
+    </tr>
+    <tr>
+
+      <td>59-40 days pre-travel date</td>
+      <td>50% amount will be refunded of total package cost</td>
+
+    </tr>
+    <tr>
+
+      <td>39-25 days pre-travel date</td>
+      <td>25% amount will be refunded of total package cost</td>
+    </tr>
+    <tr>
+
+      <td>24-15 days pre-travel date</td>
+      <td>15% amount will be refunded of total package cost</td>
+    </tr>
+    <tr>
+
+      <td>Less than 15 days</td>
+      <td>No Refund</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

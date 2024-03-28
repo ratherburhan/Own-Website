@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <!--
+        - #POPULAR
+      -->
+
+      <section class="section popular">
+        <div class="container">
+
+          <p class="section-subtitle">Featured Tours</p>
+
+          <h2 class="h2 section-title">{{ destination }} Tours</h2>
+
+          <ul class="popular-list">
+
+            <li>
+              <div class="popular-card">
+                {% for tour in tours: %}
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">{{ tour.time }}</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹{{ tour.price }}</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
+
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
+                  </h3>
+
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+            {% endfor %}
+
+          </ul>
+
+        </div>
+      </section>
+
+{% endblock %}

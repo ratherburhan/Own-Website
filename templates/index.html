@@ -1,64 +1,707 @@
-{% include "header.html" %}
+{% extends 'base.html' %}
 
-<!-- Page Header-->
-<header
-  class="masthead"
-  style="background-image: url('../static/assets/img/home-bg.jpg')"
->
-  <div class="container position-relative px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="site-heading">
-          <h1>Burhan's Blog</h1>
-          <span class="subheading">A collection of random musings.</span>
+{% block content %}
+
+<main xmlns="http://www.w3.org/1999/html">
+    <article>
+
+      <!--
+        - #HERO
+      -->
+
+      <section class="section hero"
+        style="background-image: url('../static/assets/images/hero-bg-bottom.png') url('../static/assets/images/hero-bg-top.png')">
+        <div class="container">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-1.png') }}" width="61" height="61" alt="Vector Shape" class="shape shape-1">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-2.png') }}" width="56" height="74" alt="Vector Shape" class="shape shape-2">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-3.png') }}" width="57" height="72" alt="Vector Shape" class="shape shape-3">
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Explore Your Travel</p>
+
+            <h2 class="hero-title">Wanderwell Travels</h2>
+
+            <p class="hero-text">
+              I travel not to go anywhere, but to go. I travel for travel's sake the great affair is to move.
+            </p>
+
+            <div class="btn-group">
+              <a href="#" class="btn btn-primary">Contact Us</a>
+
+              <a href="#" class="btn btn-outline">Learn More</a>
+            </div>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="{{ url_for('static', filename='assets/images/hero-banner.png') }}" width="550" height="812" loading="lazy" alt="hero banner"
+              class="w-100">
+          </figure>
+
         </div>
+      </section>
+
+      <!--
+              - #DESTINATION
+            -->
+
+      <section class="section destination">
+        <div class="container">
+
+          <p class="section-subtitle">Destinations</p>
+
+          <h2 class="h2 section-title">Choose Your Place</h2>
+
+          <ul class="destination-list">
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='kashmir') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-1.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Malé, Maldives" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Srinagar</p>
+
+                  <h3 class="h3 card-title">Kashmir</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='amarnath') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-2.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Bangkok, Thailand" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Holy Cave</p>
+
+                  <h3 class="h3 card-title">Amarnath</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ url_for('show_tours', destination='ladakh') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/destination-3.jpg') }}" width="1110" height="480"
+                    loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Leh</p>
+
+                  <h3 class="h3 card-title">Ladakh</h3>
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+      <!--
+        - #POPULAR
+      -->
+
+ <section class="section popular">
+
+      <div class="container">
+        <p class="section-subtitle">Featured Tours</p>
+
+          <h2 class="h2 section-title">Most Popular Tours</h2>
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+
+      <div class="cards-wrapper">
+
+        <ul class="popular-list">
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', id=1) }}">
+                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">4N / 5D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="6">(6)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">6N / 7D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹10999.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="8">(8)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Leh, Nubra Valley Sightseeing</a>
+                  </h3>
+
+                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">3N / 4D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="5">(5)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Amarnath Yatra Package</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Sonmarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+        </ul>
+
       </div>
     </div>
-  </div>
-</header>
-<!-- Main Content-->
-<div class="container px-4 px-lg-5">
-  <div class="row gx-4 gx-lg-5 justify-content-center">
-    <div class="col-md-10 col-lg-8 col-xl-7">
-      <!-- Post preview-->
-      {% for post in all_posts %}
-      <div class="post-preview">
-        <a href="{{ url_for('show_post', post_id=post.id) }}">
-          <h2 class="post-title">{{ post.title }}</h2>
-          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-        </a>
-        <p class="post-meta">
-          Posted by
-          <a href="#">{{post.author.name }}</a>
-          on {{post.date}}
-          <!-- TODO: Only show delete button if user id is 1 (admin user) -->
-          {% if current_user.id == 1: %}
-          <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-          {% endif %}
-        </p>
-      </div>
-      <!-- Divider-->
-      <hr class="my-4" />
-      {% endfor %}
+    <div class="carousel-item" data-bs-interval="2000">
+      <div class="cards-wrapper">
 
-      <!-- New Post -->
-      <!-- TODO: Only show Create Post button if user id is 1 (admin user) -->
-      {% if current_user.id == 1: %}
-      <div class="d-flex justify-content-end mb-4">
-        <a
-          class="btn btn-primary float-right"
-          href="{{url_for('add_new_post')}}"
-          >Create New Post</a
-        >
-      </div>
-      {% endif %}
+        <ul class="popular-list">
 
-      <!-- Pager-->
-      <div class="d-flex justify-content-end mb-4">
-        <a class="btn btn-secondary text-uppercase" href="#!">Older Posts →</a>
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', id=1) }}">
+                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">4N / 5D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="6">(6)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">6N / 7D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹10999.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="8">(8)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Leh, Nubra Valley Sightseeing</a>
+                  </h3>
+
+                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">3N / 4D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="5">(5)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Amarnath Yatra Package</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Sonmarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+        </ul>
+
       </div>
     </div>
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <ul class="popular-list">
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', id=1) }}">
+                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">4N / 5D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="6">(6)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">6N / 7D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹10999.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="8">(8)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Leh, Nubra Valley Sightseeing</a>
+                  </h3>
+
+                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
+
+                </div>
+
+              </div>
+            </li>
+
+          <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="#">
+                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
+                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">3N / 4D</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹14499.00</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+
+                      <data value="5">(5)</data>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="#">Amarnath Yatra Package</a>
+                  </h3>
+
+                  <address class="card-location">Srinagar - Sonmarg</address>
+
+                </div>
+
+              </div>
+            </li>
+
+        </ul>
+
+    </div>
+
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
 </div>
+</div>
+      </div>
+  </section>
 
-{% include "footer.html" %}
+
+
+
+      <!--
+        - #PHOTOS
+      -->
+
+
+      <section class="section popular">
+        <div class="container">
+
+          <p class="section-subtitle">Explore Paradise</p>
+
+          <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
+
+
+          <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-theme="dark">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            </div>
+        </div>
+
+      </section>
+
+
+      <!--
+        - # Why choose us
+      -->
+
+      <section class="section about">
+        <div class="container">
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Why Choose Us</p>
+
+            <h2 class="h2 section-title">Explore all tour of the world with us.</h2>
+
+            <p class="about-text">
+              Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
+              randomised words
+              which don't look even slightly believable.
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="compass"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Tour guide</h3>
+
+                  <p class="about-item-text">
+                    Lorem Ipsum available, but the majority have suffered alteration in some.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="briefcase"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Friendly price</h3>
+
+                  <p class="about-item-text">
+                    Lorem Ipsum available, but the majority have suffered alteration in some.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="umbrella"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Reliable tour</h3>
+
+                  <p class="about-item-text">
+                    Lorem Ipsum available, but the majority have suffered alteration in some.
+                  </p>
+                </div>
+
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn btn-primary">Book Now</a>
+
+          </div>
+
+          <figure class="about-banner">
+            <img src="{{ url_for('static', filename='assets/images/about-banner.png') }}" width="756" height="842" loading="lazy" alt="" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+{% endblock %}
