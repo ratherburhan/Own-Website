@@ -14,10 +14,10 @@
           <h2 class="h2 section-title">{{ destination }} Tours</h2>
 
           <ul class="popular-list">
-
+            {% for tour in tours: %}
             <li>
               <div class="popular-card">
-                {% for tour in tours: %}
+
                 <figure class="card-banner">
                   <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
                     <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
@@ -65,9 +65,7 @@
               </div>
             </li>
             {% endfor %}
-
           </ul>
-
         </div>
       </section>
 

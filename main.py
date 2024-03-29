@@ -1,5 +1,5 @@
 import datetime as dt
-from flask import Flask, render_template, redirect, url_for, flash, request
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from flask_sqlalchemy import SQLAlchemy
@@ -8,7 +8,7 @@ from sqlalchemy import Integer, String
 import os
 import smtplib
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, EmailField, TextAreaField
+from wtforms import StringField, SubmitField, EmailField
 from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
 from email.mime.multipart import MIMEMultipart
@@ -76,7 +76,8 @@ def show_year():
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
+    return render_template("index.html", popular_tours=popular_tours)
 
 
 @app.route('/show_tours')

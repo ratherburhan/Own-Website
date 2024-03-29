@@ -134,412 +134,194 @@
 
         <ul class="popular-list">
 
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 1: %}
+
             <li>
               <div class="popular-card">
 
                 <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', id=1) }}">
-                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="P12D">4N / 5D</time>
+                    <time datetime="P12D">{{ tour.time }}</time>
                   </span>
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
+                    <div class="card-price">From ₹{{ tour.price }}</div>
 
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
 
-                      <data value="6">(6)</data>
                     </div>
                   </div>
 
                   <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
                   </h3>
 
-                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
 
                 </div>
 
               </div>
             </li>
 
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">6N / 7D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹10999.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="8">(8)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Leh, Nubra Valley Sightseeing</a>
-                  </h3>
-
-                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
-
-                </div>
-
-              </div>
-            </li>
-
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">3N / 4D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="5">(5)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Amarnath Yatra Package</a>
-                  </h3>
-
-                  <address class="card-location">Srinagar - Sonmarg</address>
-
-                </div>
-
-              </div>
-            </li>
+          {% endif %}
+        {% endfor %}
 
         </ul>
 
       </div>
     </div>
+
     <div class="carousel-item" data-bs-interval="2000">
       <div class="cards-wrapper">
 
         <ul class="popular-list">
 
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 2: %}
+
             <li>
               <div class="popular-card">
 
                 <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', id=1) }}">
-                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="P12D">4N / 5D</time>
+                    <time datetime="P12D">{{ tour.time }}</time>
                   </span>
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
+                    <div class="card-price">From ₹{{ tour.price }}</div>
 
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
 
-                      <data value="6">(6)</data>
                     </div>
                   </div>
 
                   <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
                   </h3>
 
-                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
 
                 </div>
 
               </div>
             </li>
 
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">6N / 7D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹10999.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="8">(8)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Leh, Nubra Valley Sightseeing</a>
-                  </h3>
-
-                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
-
-                </div>
-
-              </div>
-            </li>
-
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">3N / 4D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="5">(5)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Amarnath Yatra Package</a>
-                  </h3>
-
-                  <address class="card-location">Srinagar - Sonmarg</address>
-
-                </div>
-
-              </div>
-            </li>
+          {% endif %}
+        {% endfor %}
 
         </ul>
 
       </div>
     </div>
+
     <div class="carousel-item">
       <div class="cards-wrapper">
         <ul class="popular-list">
+
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 3: %}
 
             <li>
               <div class="popular-card">
 
                 <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', id=1) }}">
-                    <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" width="740" height="518" loading="lazy"
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
                       alt="Kuala Lumpur, Malaysia" class="img-cover">
                   </a>
 
                   <span class="card-badge">
                     <ion-icon name="time-outline"></ion-icon>
 
-                    <time datetime="P12D">4N / 5D</time>
+                    <time datetime="P12D">{{ tour.time }}</time>
                   </span>
                 </figure>
 
                 <div class="card-content">
 
                   <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
+                    <div class="card-price">From ₹{{ tour.price }}</div>
 
                     <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
 
-                      <data value="6">(6)</data>
                     </div>
                   </div>
 
                   <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', id=1) }}">Customizable-Best of Kashmir</a>
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
                   </h3>
 
-                  <address class="card-location">Srinagar - Kashmir - Sonamarg</address>
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
 
                 </div>
 
               </div>
             </li>
 
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">6N / 7D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹10999.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="8">(8)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Leh, Nubra Valley Sightseeing</a>
-                  </h3>
-
-                  <address class="card-location">Leh - Nubra Valley - Pangong Lake</address>
-
-                </div>
-
-              </div>
-            </li>
-
-          <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="#">
-                    <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">3N / 4D</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹14499.00</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-
-                      <data value="5">(5)</data>
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="#">Amarnath Yatra Package</a>
-                  </h3>
-
-                  <address class="card-location">Srinagar - Sonmarg</address>
-
-                </div>
-
-              </div>
-            </li>
+          {% endif %}
+        {% endfor %}
 
         </ul>
-
     </div>
 
   </div>
