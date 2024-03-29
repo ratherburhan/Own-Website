@@ -1164,3 +1164,21 @@ iframe {
 .table-bordered {
     margin-top: 30px
  }
+
+.contact-table {
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+    height: 520px;
+}
+
+.social-icons {padding: 50px}
+
+.contact-info {
+  color: black;
+ }
+
+.contact-icon {
+  color: black;
+ }

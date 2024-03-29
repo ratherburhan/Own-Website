@@ -8,7 +8,7 @@ from sqlalchemy import Integer, String
 import os
 import smtplib
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, EmailField
+from wtforms import StringField, SubmitField, EmailField, SelectField
 from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
 from email.mime.multipart import MIMEMultipart
@@ -21,6 +21,14 @@ class ContactForm(FlaskForm):
     email_address = EmailField("Email Address", validators=[DataRequired("This field cannot be empty"), Email(
         message='Invalid Email address')])
     phone = StringField("Phone", validators=[DataRequired("This field cannot be empty")])
+    adults = SelectField(label='Adults',
+                                choices=["Please choose", 1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'],
+                                validators=[DataRequired("This field cannot be empty")])
+    children = SelectField(label='Children(5-12 year)', choices=["Please choose", 1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'],
+                           validators=[DataRequired("Children(5-12 year)")])
+    accommodation = SelectField(label='Select Accommodation',
+                                choices=["Please choose", "Budget", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐", "Luxury"],
+                                validators=[DataRequired("This field cannot be empty")])
     message = CKEditorField("Message", validators=[DataRequired("This field cannot be empty")])
     submit = SubmitField("Submit Message")
 
@@ -118,16 +126,20 @@ def contact():
         name = contact_form.name.data
         email = contact_form.email_address.data
         phone = contact_form.phone.data
+        adults = contact_form.adults.data
+        children = contact_form.children.data
+        accommodation = contact_form.accommodation.data
         user_message = contact_form.message.data
-        send_mail(name, email, phone, user_message)
+        send_mail(name, email, phone, adults, children, accommodation,  user_message)
         contact_form = ContactForm(formdata=None)
 
         return render_template("contact.html", message=True, form=contact_form)
     return render_template("contact.html", message=False, form=contact_form)
 
 
-def send_mail(name, email, phone, user_message):
-    email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage as follows:"
+def send_mail(name, email, phone, adults, children, accommodation, user_message):
+    email_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}Adults: {adults}\nChildren: {children}\nAccommodation:"
+                 f" {accommodation}\n\n\nMessage as follows:")
     company_mail = os.environ.get('company_mail')
 
     # Create message container - the correct MIME type is multipart/alternative.
