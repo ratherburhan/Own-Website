@@ -8,15 +8,17 @@ from sqlalchemy import Integer, String
 import os
 import smtplib
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, EmailField
-from wtforms.validators import DataRequired, URL, Email
+from wtforms import StringField, SubmitField, EmailField, TextAreaField
+from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 # WTForm for creating a Message
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
-    email_address = StringField("Email Address", validators=[DataRequired("This field cannot be empty"), Email(
+    email_address = EmailField("Email Address", validators=[DataRequired("This field cannot be empty"), Email(
         message='Invalid Email address')])
     phone = StringField("Phone", validators=[DataRequired("This field cannot be empty")])
     message = CKEditorField("Message", validators=[DataRequired("This field cannot be empty")])
@@ -118,19 +120,40 @@ def contact():
         user_message = contact_form.message.data
         send_mail(name, email, phone, user_message)
         contact_form = ContactForm(formdata=None)
+
         return render_template("contact.html", message=True, form=contact_form)
     return render_template("contact.html", message=False, form=contact_form)
 
 
 def send_mail(name, email, phone, user_message):
-    email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {user_message}"
+    email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage as follows:"
     company_mail = os.environ.get('company_mail')
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+
+    # Create message container - the correct MIME type is multipart/alternative.
+    msg = MIMEMultipart('multipart')
+    msg['Subject'] = "Lead Details"
+    msg['From'] = my_email
+    msg['To'] = company_mail
+
+    # Record the MIME types of both parts - text/plain and text/html.
+    part1 = MIMEText(email_msg, 'plain')
+    part2 = MIMEText(user_message, 'html')
+
+    # Attach parts into message container.
+    # According to RFC 2046, the last part of a multipart message, in this case
+    # the HTML message, is best and preferred.
+    msg.attach(part1)
+    msg.attach(part2)
+
+    # email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {user_message}"
+    # company_mail = os.environ.get('company_mail')
+    with smtplib.SMTP("smtp.gmail.com", 587, timeout=120) as connection:
         connection.starttls()
+        connection.ehlo()
         connection.login(user=my_email, password=pwd)
         connection.sendmail(from_addr=my_email,
                             to_addrs=f"{company_mail}",
-                            msg=f"Subject:User Contact Details\n\n{email_msg}".encode('utf-8'))
+                            msg=msg.as_string().encode('utf-8'))
 
 
 if __name__ == "__main__":
