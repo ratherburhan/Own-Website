@@ -3,16 +3,19 @@
 {% block content %}
 
 <!-- Page Header-->
-<section class="section popular">
+<section class="section about">
         <div class="container">
+            <div class="about-content">
 
-          {% if not message: %}
-          <p class="section-subtitle question">Have questions? We have answers.</p>
-          <h2 class="h2 section-title" id="contact-1">Leave a Message</h2>
-          {% else: %}
-          <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
-          <h2 class="h2 section-title contact">Successfully sent your message</h2>
-          {% endif %}
+              {% if not message: %}
+              <p class="section-subtitle question">Have questions? We have answers.</p>
+              <h2 class="h2 section-title" id="contact-1">Leave a Message</h2>
+              {% else: %}
+              <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
+              <h2 class="h2 section-title contact">Successfully sent your message</h2>
+              {% endif %}
+
+            </div>
         </div>
 </section>
 
@@ -26,7 +29,7 @@
       </div>
 
     <div class="col-lg-4 col-md-8 contact-table" id="custom-cards">
-<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg.jpg');">
+<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg2.jpg');">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
 
             <ul class="location-card">
