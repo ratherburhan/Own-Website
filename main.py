@@ -138,7 +138,7 @@ def contact():
 
 
 def send_mail(name, email, phone, adults, children, accommodation, user_message):
-    email_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}Adults: {adults}\nChildren: {children}\nAccommodation:"
+    email_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}\nAccommodation:"
                  f" {accommodation}\n\n\nMessage as follows:")
     company_mail = os.environ.get('company_mail')
 
