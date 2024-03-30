@@ -11,6 +11,7 @@ from wtforms import StringField, SubmitField, EmailField, SelectField
 from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
 from postmarker.core import PostmarkClient
+import requests
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -138,43 +139,63 @@ def contact():
     return render_template("contact.html", message=False, form=contact_form)
 
 
-def send_mail(name, email, phone, adults, children, accommodation, user_message):
-    text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
-                f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
-    company_mail = os.environ.get('company_mail')
-    postmark = PostmarkClient(server_token=os.environ.get('server_token'))
-    postmark.emails.send(
-        From=f'{company_mail}',
-        To=f'{company_mail}',
-        Subject='Lead Details',
-        HtmlBody=f'{text_msg}'
-    )
+# def send_mail(name, email, phone, adults, children, accommodation, user_message):
+#     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
+#                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
+#     company_mail = os.environ.get('company_mail')
+#     postmark = PostmarkClient(server_token=os.environ.get('server_token'))
+#     postmark.emails.send(
+#         From=f'{company_mail}',
+#         To=f'{company_mail}',
+#         Subject='Lead Details',
+#         HtmlBody=f'{text_msg}'
+#     )
 
-    # # Create message container - the correct MIME type is multipart/alternative.
-    # msg = MIMEMultipart('multipart')
-    # msg['Subject'] = "Lead Details"
-    # msg['From'] = my_email
-    # msg['To'] = company_mail
-    #
-    # # Record the MIME types of both parts - text/plain and text/html.
-    # part1 = MIMEText(text_msg, 'plain')
-    # part2 = MIMEText(user_message, 'html')
-    #
-    # # Attach parts into message container.
-    # # According to RFC 2046, the last part of a multipart message, in this case
-    # # the HTML message, is best and preferred.
-    # msg.attach(part1)
-    # msg.attach(part2)
-    #
-    # # email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {user_message}"
-    # # company_mail = os.environ.get('company_mail')
-    # with smtplib.SMTP("smtp.gmail.com", 587, timeout=120) as connection:
-    #     connection.starttls()
-    #     connection.ehlo()
-    #     connection.login(user=my_email, password=pwd)
-    #     connection.sendmail(from_addr=my_email,
-    #                         to_addrs=f"{company_mail}",
-    #                         msg=msg.as_string().encode('utf-8'))
+
+# def send_mail2(name, email, phone, adults, children, accommodation, user_message):
+#     text_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}"
+#                 f"\nAccommodation: {accommodation}\n\nMessage as follows:\n\n\n")
+#     company_mail = os.environ.get('company_mail')
+#
+#     # # Create message container - the correct MIME type is multipart/alternative.
+#     msg = MIMEMultipart('multipart')
+#     msg['Subject'] = "Lead Details"
+#     msg['From'] = my_email
+#     msg['To'] = company_mail
+#
+#     # Record the MIME types of both parts - text/plain and text/html.
+#     part1 = MIMEText(text_msg, 'plain')
+#     part2 = MIMEText(user_message, 'html')
+#
+#     # Attach parts into message container.
+#     # According to RFC 2046, the last part of a multipart message, in this case
+#     # the HTML message, is best and preferred.
+#     msg.attach(part1)
+#     msg.attach(part2)
+#
+#     # email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {user_message}"
+#     # company_mail = os.environ.get('company_mail')
+#     with smtplib.SMTP("smtp.gmail.com", 587, timeout=120) as connection:
+#         connection.starttls()
+#         connection.ehlo()
+#         connection.login(user=my_email, password=pwd)
+#         connection.sendmail(from_addr=my_email,
+#                             to_addrs=f"{company_mail}",
+#                             msg=msg.as_string().encode('utf-8'))
+
+def send_mail(name, email, phone, adults, children, accommodation, user_message):
+    domain_name = "sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org"
+    url = "https://api.mailgun.net/v3/" + domain_name + "/messages"
+    text_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}"
+                f"\nAccommodation: {accommodation}\n\nMessage as follows:\n\n\n")
+    company_mail = os.environ.get('company_mail')
+
+    return requests.post(url, auth=('api', '5f537ccf8573c8795fa00735920ad32d-f68a26c9-bb7b5b3c'),
+                         data={"from": "mailgun@sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org",
+                               "to": f"{company_mail}",
+                               "subject": "Lead Details",
+                               "text": f"{text_msg}",
+                               "html": f"{user_message}"})
 
 
 if __name__ == "__main__":
