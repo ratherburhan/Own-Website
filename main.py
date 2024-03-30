@@ -63,14 +63,14 @@ class Tour(db.Model):
     days: Mapped[str] = mapped_column(Integer, nullable=False)
     destination: Mapped[str] = mapped_column(String(250), nullable=False)
     popularity: Mapped[str] = mapped_column(Integer, nullable=False)
-    day1: Mapped[str] = mapped_column(String(1000), nullable=False)
-    day2: Mapped[str] = mapped_column(String(1000))
-    day3: Mapped[str] = mapped_column(String(1000))
-    day4: Mapped[str] = mapped_column(String(1000))
-    day5: Mapped[str] = mapped_column(String(1000))
-    day6: Mapped[str] = mapped_column(String(1000))
-    day7: Mapped[str] = mapped_column(String(1000))
-    day8: Mapped[str] = mapped_column(String(1000))
+    day1: Mapped[str] = mapped_column(String(3000), nullable=False)
+    day2: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day3: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day4: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day5: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day6: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day7: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day8: Mapped[str] = mapped_column(String(3000), nullable=True)
 
 
 with app.app_context():
