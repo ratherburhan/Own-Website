@@ -8,7 +8,7 @@ from sqlalchemy import Integer, String
 import os
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, SelectField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired
 from flask_ckeditor import CKEditorField
 from postmarker.core import PostmarkClient
 import requests
@@ -20,8 +20,7 @@ from email.mime.text import MIMEText
 # WTForm for creating a Message
 class ContactForm(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
-    email_address = EmailField("Email Address", validators=[DataRequired("This field cannot be empty"), Email(
-        message='Invalid Email address')])
+    email_address = EmailField("Email Address", validators=[DataRequired("This field cannot be empty")])
     phone = StringField("Phone", validators=[DataRequired("This field cannot be empty")])
     adults = SelectField(label='Adults',
                          choices=["Please choose", 1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'],
