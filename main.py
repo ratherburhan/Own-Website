@@ -147,7 +147,7 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     company_mail = os.environ.get('company_mail')
     headers = {'Content-Type': 'application/json', 'X-Postmark-Server-Token': os.environ.get('server_token'),
                'Accept': 'application/json'}
-    parameters = {'From': f'f{company_mail}', 'To': f'{company_mail}', 'Subject': 'Lead Details',
+    parameters = {'From': f'{company_mail}', 'To': f'{company_mail}', 'Subject': 'Lead Details',
                   'HtmlBody': f'f{text_msg}'}
 
     data = json.dumps(parameters)
