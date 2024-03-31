@@ -151,7 +151,7 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
                   'HtmlBody': f'f{text_msg}'}
 
     data = json.dumps(parameters)
-    return requests.post('https://api.postmarkapp.com/email', headers=headers, data=data)
+    requests.post('https://api.postmarkapp.com/email', headers=headers, data=data)
 
     # postmark = PostmarkClient(server_token=os.environ.get('server_token'))
     # postmark.emails.send(
@@ -208,4 +208,4 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=7000)
