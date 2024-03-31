@@ -132,7 +132,27 @@ def contact():
         children = contact_form.children.data
         accommodation = contact_form.accommodation.data
         user_message = contact_form.message.data
-        send_mail(name, email, phone, adults, children, accommodation, user_message)
+        # send_mail(name, email, phone, adults, children, accommodation, user_message)
+        sheety_post_endpoint = os.environ.get("sheety_end_point")
+        sheety_bearer = os.environ.get("sheety_bearer")
+        SHEETY_HEADER = {
+            "Authorization": f"Bearer {sheety_bearer}"
+        }
+
+        parameters = {
+            "lead": {
+                'date': dt.datetime.now().strftime("%d-%m-%Y"),
+                'name': name,
+                'phone': phone,
+                'email': email,
+                'adults': adults,
+                'children': children,
+                'accommodation': accommodation,
+                'message': user_message,
+            }
+        }
+
+        requests.post(url=sheety_post_endpoint, headers=SHEETY_HEADER, json=parameters)
         contact_form = ContactForm(formdata=None)
         return render_template("contact.html", message=True, form=contact_form)
 
@@ -184,19 +204,6 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 #                             to_addrs=f"{company_mail}",
 #                             msg=msg.as_string().encode('utf-8'))
 
-# def send_mail(name, email, phone, adults, children, accommodation, user_message):
-#     domain_name = "sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org"
-#     url = "https://api.mailgun.net/v3/" + domain_name + "/messages"
-#     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
-#                                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
-#     company_mail = os.environ.get('company_mail')
-#
-#     return requests.post(url, auth=('api', '5f537ccf8573c8795fa00735920ad32d-f68a26c9-bb7b5b3c'),
-#                          data={"from": "mailgun@sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org",
-#                                "to": f"{company_mail}",
-#                                "subject": "Lead Details",
-#                                "html": f"{text_msg}"})
-
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run()
