@@ -151,13 +151,8 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
                   'HtmlBody': f'f{text_msg}'}
 
     data = json.dumps(parameters)
-    r = requests.post('https://api.postmarkapp.com/email', headers=headers, data=data)
-    print(r.status_code)
-    response = json.loads(r.text)
-    if response['ErrorCode'] == 0:
-        print('Message ID = %s' % response['MessageID'])
-    else:
-        print('Message not sent')
+    return requests.post('https://api.postmarkapp.com/email', headers=headers, data=data)
+
     # postmark = PostmarkClient(server_token=os.environ.get('server_token'))
     # postmark.emails.send(
     #     From=f'{company_mail}',
