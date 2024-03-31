@@ -139,17 +139,17 @@ def contact():
     return render_template("contact.html", message=False, form=contact_form)
 
 
-# def send_mail(name, email, phone, adults, children, accommodation, user_message):
-#     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
-#                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
-#     company_mail = os.environ.get('company_mail')
-#     postmark = PostmarkClient(server_token=os.environ.get('server_token'))
-#     postmark.emails.send(
-#         From=f'{company_mail}',
-#         To=f'{company_mail}',
-#         Subject='Lead Details',
-#         HtmlBody=f'{text_msg}'
-#     )
+def send_mail(name, email, phone, adults, children, accommodation, user_message):
+    text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
+                f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
+    company_mail = os.environ.get('company_mail')
+    postmark = PostmarkClient(server_token=os.environ.get('server_token'))
+    postmark.emails.send(
+        From=f'{company_mail}',
+        To=f'{company_mail}',
+        Subject='Lead Details',
+        HtmlBody=f'{text_msg}'
+    )
 
 
 # def send_mail2(name, email, phone, adults, children, accommodation, user_message):
@@ -183,19 +183,18 @@ def contact():
 #                             to_addrs=f"{company_mail}",
 #                             msg=msg.as_string().encode('utf-8'))
 
-def send_mail(name, email, phone, adults, children, accommodation, user_message):
-    domain_name = "sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org"
-    url = "https://api.mailgun.net/v3/" + domain_name + "/messages"
-    text_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}"
-                f"\nAccommodation: {accommodation}\n\nMessage as follows:\n\n\n")
-    company_mail = os.environ.get('company_mail')
-
-    return requests.post(url, auth=('api', '5f537ccf8573c8795fa00735920ad32d-f68a26c9-bb7b5b3c'),
-                         data={"from": "mailgun@sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org",
-                               "to": f"{company_mail}",
-                               "subject": "Lead Details",
-                               "text": f"{text_msg}",
-                               "html": f"{user_message}"})
+# def send_mail(name, email, phone, adults, children, accommodation, user_message):
+#     domain_name = "sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org"
+#     url = "https://api.mailgun.net/v3/" + domain_name + "/messages"
+#     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
+#                                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
+#     company_mail = os.environ.get('company_mail')
+#
+#     return requests.post(url, auth=('api', '5f537ccf8573c8795fa00735920ad32d-f68a26c9-bb7b5b3c'),
+#                          data={"from": "mailgun@sandbox6f74796219754e1b98530ea3b6ebd90f.mailgun.org",
+#                                "to": f"{company_mail}",
+#                                "subject": "Lead Details",
+#                                "html": f"{text_msg}"})
 
 
 if __name__ == "__main__":
