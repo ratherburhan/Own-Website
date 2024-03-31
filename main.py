@@ -15,8 +15,6 @@ import requests
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import json
-
 
 
 # WTForm for creating a Message
@@ -136,8 +134,8 @@ def contact():
         user_message = contact_form.message.data
         send_mail(name, email, phone, adults, children, accommodation, user_message)
         contact_form = ContactForm(formdata=None)
-
         return render_template("contact.html", message=True, form=contact_form)
+
     return render_template("contact.html", message=False, form=contact_form)
 
 
@@ -145,24 +143,17 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
     company_mail = os.environ.get('company_mail')
-    headers = {'Content-Type': 'application/json', 'X-Postmark-Server-Token': os.environ.get('server_token'),
-               'Accept': 'application/json'}
-    parameters = {'From': f'{company_mail}', 'To': f'{company_mail}', 'Subject': 'Lead Details',
-                  'HtmlBody': f'f{text_msg}'}
 
-    data = json.dumps(parameters)
-    requests.post('https://api.postmarkapp.com/email', headers=headers, data=data)
-
-    # postmark = PostmarkClient(server_token=os.environ.get('server_token'))
-    # postmark.emails.send(
-    #     From=f'{company_mail}',
-    #     To=f'{company_mail}',
-    #     Subject='Lead Details',
-    #     HtmlBody=f'{text_msg}'
-    # )
+    postmark = PostmarkClient(server_token=os.environ.get('server_token'))
+    postmark.emails.send(
+        From=f'{company_mail}',
+        To=f'{company_mail}',
+        Subject='Lead Details',
+        HtmlBody=f'{text_msg}'
+    )
 
 
-# def send_mail2(name, email, phone, adults, children, accommodation, user_message):
+# def send_mail(name, email, phone, adults, children, accommodation, user_message):
 #     text_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}"
 #                 f"\nAccommodation: {accommodation}\n\nMessage as follows:\n\n\n")
 #     company_mail = os.environ.get('company_mail')
@@ -208,4 +199,4 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 
 
 if __name__ == "__main__":
-    app.run(port=7000)
+    app.run(host='0.0.0.0')
