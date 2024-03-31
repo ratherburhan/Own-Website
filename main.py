@@ -132,27 +132,7 @@ def contact():
         children = contact_form.children.data
         accommodation = contact_form.accommodation.data
         user_message = contact_form.message.data
-        # send_mail(name, email, phone, adults, children, accommodation, user_message)
-        sheety_post_endpoint = os.environ.get("sheety_end_point")
-        sheety_bearer = os.environ.get("sheety_bearer")
-        SHEETY_HEADER = {
-            "Authorization": f"Bearer {sheety_bearer}"
-        }
-
-        parameters = {
-            "lead": {
-                'date': dt.datetime.now().strftime("%d-%m-%Y"),
-                'name': name,
-                'phone': phone,
-                'email': email,
-                'adults': adults,
-                'children': children,
-                'accommodation': accommodation,
-                'message': user_message,
-            }
-        }
-
-        requests.post(url=sheety_post_endpoint, headers=SHEETY_HEADER, json=parameters)
+        send_mail(name, email, phone, adults, children, accommodation, user_message)
         contact_form = ContactForm(formdata=None)
         return render_template("contact.html", message=True, form=contact_form)
 
