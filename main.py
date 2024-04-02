@@ -11,10 +11,6 @@ from wtforms import StringField, SubmitField, EmailField, SelectField
 from wtforms.validators import DataRequired
 from flask_ckeditor import CKEditorField
 from postmarker.core import PostmarkClient
-import requests
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 
 # WTForm for creating a Message
@@ -152,37 +148,5 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     )
 
 
-# def send_mail(name, email, phone, adults, children, accommodation, user_message):
-#     text_msg = (f"Name: {name}\nEmail: {email}\nPhone: {phone}\nAdults: {adults}\nChildren: {children}"
-#                 f"\nAccommodation: {accommodation}\n\nMessage as follows:\n\n\n")
-#     company_mail = os.environ.get('company_mail')
-#
-#     # # Create message container - the correct MIME type is multipart/alternative.
-#     msg = MIMEMultipart('multipart')
-#     msg['Subject'] = "Lead Details"
-#     msg['From'] = my_email
-#     msg['To'] = company_mail
-#
-#     # Record the MIME types of both parts - text/plain and text/html.
-#     part1 = MIMEText(text_msg, 'plain')
-#     part2 = MIMEText(user_message, 'html')
-#
-#     # Attach parts into message container.
-#     # According to RFC 2046, the last part of a multipart message, in this case
-#     # the HTML message, is best and preferred.
-#     msg.attach(part1)
-#     msg.attach(part2)
-#
-#     # email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {user_message}"
-#     # company_mail = os.environ.get('company_mail')
-#     with smtplib.SMTP("smtp.gmail.com", 587, timeout=120) as connection:
-#         connection.starttls()
-#         connection.ehlo()
-#         connection.login(user=my_email, password=pwd)
-#         connection.sendmail(from_addr=my_email,
-#                             to_addrs=f"{company_mail}",
-#                             msg=msg.as_string().encode('utf-8'))
-
-
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

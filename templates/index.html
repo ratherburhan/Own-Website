@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<main xmlns="http://www.w3.org/1999/html">
+<main>
     <article>
 
       <!--
@@ -30,15 +30,15 @@
             </p>
 
             <div class="btn-group">
-              <a href="#" class="btn btn-primary">Contact Us</a>
+              <a href="{{ url_for('contact') }}" class="btn btn-primary">Contact Us</a>
 
-              <a href="#" class="btn btn-outline">Learn More</a>
+              <a href="{{ url_for('about') }}" class="btn btn-outline">Learn More</a>
             </div>
 
           </div>
 
           <figure class="hero-banner">
-            <img src="{{ url_for('static', filename='assets/images/hero-banner.png') }}" width="550" height="812" loading="lazy" alt="hero banner"
+            <img src="{{ url_for('static', filename='assets/images/hero-banner.png') }}" width="550" height="812" loading="lazy" alt="hero banner gondola"
               class="w-100">
           </figure>
 
@@ -62,8 +62,8 @@
               <a href="{{ url_for('show_tours', destination='kashmir') }}" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/destination-1.jpg') }}" width="1140" height="1100"
-                    loading="lazy" alt="Malé, Maldives" class="img-cover">
+                  <img src="{{ url_for('static', filename='assets/images/kashmir.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Pahalgam, Kashmir" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -79,8 +79,8 @@
               <a href="{{ url_for('show_tours', destination='amarnath') }}" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/destination-2.jpg') }}" width="1140" height="1100"
-                    loading="lazy" alt="Bangkok, Thailand" class="img-cover">
+                  <img src="{{ url_for('static', filename='assets/images/amarnath.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Amarnath" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -96,8 +96,8 @@
               <a href="{{ url_for('show_tours', destination='ladakh') }}" class="destination-card">
 
                 <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/ladakh.jpg') }}" width="1110" height="480"
-                    loading="lazy" alt="Kuala Lumpur, Malaysia" class="img-cover">
+                  <img src="{{ url_for('static', filename='assets/images/ladakh-new.jpg') }}" width="1110" height="480"
+                    loading="lazy" alt="Ladakh" class="img-cover">
                 </figure>
 
                 <div class="card-content">
@@ -143,7 +143,7 @@
                 <figure class="card-banner">
                   <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
                     <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                      alt="tour card" class="img-cover">
                   </a>
 
                   <span class="card-badge">
@@ -209,7 +209,7 @@
                 <figure class="card-banner">
                   <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
                     <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                      alt="tour card" class="img-cover">
                   </a>
 
                   <span class="card-badge">
@@ -274,7 +274,7 @@
                 <figure class="card-banner">
                   <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
                     <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="Kuala Lumpur, Malaysia" class="img-cover">
+                      alt="tour card" class="img-cover">
                   </a>
 
                   <span class="card-badge">
@@ -355,12 +355,20 @@
           <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
 
 
-          <div class="container">
+
       <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
@@ -384,6 +392,55 @@
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-4.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-5.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-6.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-7.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-8.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-9.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -394,7 +451,7 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-            </div>
+
         </div>
 
       </section>
@@ -471,12 +528,12 @@
 
             </ul>
 
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Book Now</a>
 
           </div>
 
           <figure class="about-banner">
-            <img src="{{ url_for('static', filename='assets/images/about-banner.png') }}" width="756" height="842" loading="lazy" alt="" class="w-100">
+            <img src="{{ url_for('static', filename='assets/images/why-us.png') }}" width="756" height="842" loading="lazy" alt="Why us?" class="w-100">
           </figure>
 
         </div>

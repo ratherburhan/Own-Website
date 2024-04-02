@@ -1136,7 +1136,7 @@ body {
  }
 
 .logo {
-  margin-top: 8px;
+  margin-top: 13px;
 }
 
 small {
@@ -1170,7 +1170,7 @@ iframe {
     padding-left: 30px;
     padding-right: 30px;
     padding-bottom: 100px;
-    height: 520px;
+    height: 60%
 }
 
 .social-icons {padding-top: 40px}
@@ -1182,3 +1182,7 @@ iframe {
 .contact-icon {
   color: black;
  }
+
+.carousel-fade {
+    z-index: 0
+}
