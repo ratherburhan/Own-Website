@@ -149,4 +149,4 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
