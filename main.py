@@ -11,6 +11,7 @@ from wtforms import StringField, SubmitField, EmailField, SelectField
 from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
 from postmarker.core import PostmarkClient
+import mailtrap as mt
 
 
 # WTForm for creating a Message
@@ -135,18 +136,34 @@ def contact():
     return render_template("contact.html", message=False, form=contact_form)
 
 
+# def send_mail(name, email, phone, adults, children, accommodation, user_message):
+#     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
+#                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
+#     company_mail = os.environ.get('company_mail')
+#
+#     postmark = PostmarkClient(server_token=os.environ.get('server_token'))
+#     postmark.emails.send(
+#         From=company_mail,
+#         To=company_mail,
+#         Subject='Lead Details',
+#         HtmlBody=text_msg
+#     )
+
+
 def send_mail(name, email, phone, adults, children, accommodation, user_message):
     text_msg = (f"<p>Name: {name}<br>Email: {email}<br>Phone: {phone}<br>Adults: {adults}<br>Children: {children}"
                 f"<br>Accommodation: {accommodation}<br><br>Message as follows:<p><br>{user_message}")
     company_mail = os.environ.get('company_mail')
-
-    postmark = PostmarkClient(server_token=os.environ.get('server_token'))
-    postmark.emails.send(
-        From=f'{company_mail}',
-        To=f'{company_mail}',
-        Subject='Lead Details',
-        HtmlBody=f'{text_msg}'
+    mailtrap_mail = os.environ.get('sender_mail')
+    mail = mt.Mail(
+        sender=mt.Address(email=mailtrap_mail, name="Mailtrap Lead"),
+        to=[mt.Address(email=company_mail)],
+        subject="Lead Details",
+        html=text_msg,
+        category="Sales Mail",
     )
+    client = mt.MailtrapClient(token=os.environ.get('token_mail'))
+    client.send(mail)
 
 
 if __name__ == "__main__":
