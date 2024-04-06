@@ -1186,3 +1186,7 @@ iframe {
 .carousel-fade {
     z-index: 0
 }
+
+.book-button {
+    margin-bottom: 60px;
+  }
