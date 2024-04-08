@@ -1,5 +1,5 @@
 import datetime as dt
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from flask_sqlalchemy import SQLAlchemy
@@ -164,6 +164,11 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     )
     client = mt.MailtrapClient(token=os.environ.get('token_mail'))
     client.send(mail)
+
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return send_from_directory('.', 'sitemap.xml')
 
 
 if __name__ == "__main__":
