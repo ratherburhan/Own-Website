@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wanderwell Travels - Explore Kashmir</title>
+
   {% block styles %}
     <!-- Load Bootstrap-Flask CSS here -->
   {{ bootstrap.load_css() }}
@@ -320,6 +321,18 @@
   -->
   <script src="{{ url_for('static', filename='assets/js/script.js') }}"></script>
 
+
+  <!--
+    - Schema
+  -->
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Wanderwell Travels",
+      "url" : "https://wanderwelltravels.in/"
+    }
+  </script>
 
   <!--
     - ionicon link
