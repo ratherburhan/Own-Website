@@ -10,6 +10,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, SelectField
 from wtforms.validators import DataRequired, Email
 from flask_ckeditor import CKEditorField
+from flask_ckeditor.utils import cleanify
 import mailtrap as mt
 
 
@@ -33,6 +34,7 @@ class ContactForm(FlaskForm):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+app.config['CKEDITOR_SERVE_LOCAL'] = True
 ckeditor = CKEditor(app)
 Bootstrap5(app)
 
@@ -124,7 +126,7 @@ def contact():
         adults = contact_form.adults.data
         children = contact_form.children.data
         accommodation = contact_form.accommodation.data
-        user_message = contact_form.message.data
+        user_message = cleanify(contact_form.message.data)
         send_mail(name, email, phone, adults, children, accommodation, user_message)
         contact_form = ContactForm(formdata=None)
         return render_template("contact.html", message=True, form=contact_form)
