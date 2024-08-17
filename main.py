@@ -1,5 +1,5 @@
 import datetime as dt
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request, send_from_directory, redirect, url_for
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from flask_sqlalchemy import SQLAlchemy
@@ -128,10 +128,16 @@ def contact():
         accommodation = contact_form.accommodation.data
         user_message = cleanify(contact_form.message.data)
         send_mail(name, email, phone, adults, children, accommodation, user_message)
-        contact_form = ContactForm(formdata=None)
-        return render_template("contact.html", message=True, form=contact_form)
+        # contact_form = ContactForm(formdata=None)
+        # return render_template("contact.html", message=True, form=contact_form)
+        return redirect(url_for("thankyou"))
 
     return render_template("contact.html", message=False, form=contact_form)
+
+
+@app.route("/contact/thankyou")
+def thankyou():
+    return render_template("contact.html", message=True)
 
 
 def send_mail(name, email, phone, adults, children, accommodation, user_message):
