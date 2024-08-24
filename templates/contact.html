@@ -1,4 +1,4 @@
-{% from "bootstrap5/form.html" import render_form %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
@@ -19,14 +19,55 @@
         </div>
 </section>
 
-{% if not message: %}
+
 <!-- Main Content-->
 <main class="mb-4">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        {{ ckeditor.load(custom_url=url_for('static', filename='ckeditor/ckeditor.js')) }} {{ ckeditor.config(name='message') }}
-        {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+
+          <form action="{{ url_for('contact') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
+        <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
+
+    <div class="mb-3 required"><label class="form-label" for="name">Name</label>
+                        <input class="form-control" id="name" name="name" required="" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address</label>
+                        <input class="form-control" id="email_address" name="email_address" required="" type="email" value=""
+                        oninvalid="alert('Please input a valid email address.')">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="phone">Phone</label>
+                        <input class="form-control" id="phone" name="phone" required="" type="number" value=""
+                               oninvalid="alert('Please input a valid phone number.')">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="adults">Adults</label>
+                        <select class="form-select" id="adults" name="adults" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="children">Children(5-12 year)</label>
+                        <select class="form-select" id="children" name="children" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="accommodation">Select Accommodation</label>
+                        <select class="form-select" id="accommodation" name="accommodation" required=""><option value="Please choose">Please choose</option><option value="Budget">Budget</option><option value="⭐⭐">⭐⭐</option><option value="⭐⭐⭐">⭐⭐⭐</option><option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option><option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option><option value="Luxury">Luxury</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="10"></textarea>
+        </div>
+
+            <input class="btn btn-primary btn-md" id="submit" name="submit" type="submit" value="Submit Message">
+
+    </form>
       </div>
 
     <div class="col-lg-4 col-md-8 contact-table mx-auto" id="custom-cards">
@@ -94,7 +135,7 @@
     </div>
   </div>
 </main>
-{% endif %}
+
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.1300347114147!2d74.85974257404693!3d34.168592911580554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1856edfd8f587%3A0x57c18c6ad310d895!2sWanderwell%20Travels!5e0!3m2!1sen!2sin!4v1711437649237!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 

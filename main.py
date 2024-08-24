@@ -1,35 +1,12 @@
 import datetime as dt
-from flask import Flask, render_template, request, send_from_directory, redirect, url_for
+from flask import Flask, render_template, request, send_from_directory
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
 import os
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, EmailField, SelectField
-from wtforms.validators import DataRequired, Email
-from flask_ckeditor import CKEditorField
-from flask_ckeditor.utils import cleanify
 import mailtrap as mt
-
-
-# WTForm for creating a Message
-class ContactForm(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
-    email_address = EmailField("Email Address", validators=[DataRequired("This field cannot be empty"),
-                                                            Email(message="Invalid Email ID")])
-    phone = StringField("Phone", validators=[DataRequired("This field cannot be empty")])
-    adults = SelectField(label='Adults',
-                         choices=["Please choose", 1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'],
-                         validators=[DataRequired("This field cannot be empty")])
-    children = SelectField(label='Children(5-12 year)', choices=["Please choose", 1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'],
-                           validators=[DataRequired("Children(5-12 year)")])
-    accommodation = SelectField(label='Select Accommodation',
-                                choices=["Please choose", "Budget", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐", "Luxury"],
-                                validators=[DataRequired("This field cannot be empty")])
-    message = CKEditorField("Message", validators=[DataRequired("This field cannot be empty")])
-    submit = SubmitField("Submit Message")
 
 
 app = Flask(__name__)
@@ -118,26 +95,19 @@ def cancellation_policy():
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    contact_form = ContactForm()
-    if contact_form.validate_on_submit():
-        name = contact_form.name.data
-        email = contact_form.email_address.data
-        phone = contact_form.phone.data
-        adults = contact_form.adults.data
-        children = contact_form.children.data
-        accommodation = contact_form.accommodation.data
-        user_message = cleanify(contact_form.message.data)
+    if request.method == "POST":
+        data = request.form
+        name = data["name"]
+        email = data["email_address"]
+        phone = data["phone"]
+        adults = data["adults"]
+        children = data["children"]
+        accommodation = data["accommodation"]
+        user_message = data["message"]
         send_mail(name, email, phone, adults, children, accommodation, user_message)
-        # contact_form = ContactForm(formdata=None)
-        # return render_template("contact.html", message=True, form=contact_form)
-        return redirect(url_for("thankyou"))
+        return render_template("contact.html", message=True)
 
-    return render_template("contact.html", message=False, form=contact_form)
-
-
-@app.route("/contact/thankyou")
-def thankyou():
-    return render_template("contact.html", message=True)
+    return render_template("contact.html", message=False)
 
 
 def send_mail(name, email, phone, adults, children, accommodation, user_message):
