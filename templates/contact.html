@@ -29,39 +29,39 @@
           <form action="{{ url_for('contact') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
         <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
 
-    <div class="mb-3 required"><label class="form-label" for="name">Name</label>
-                        <input class="form-control" id="name" name="name" required="" type="text" value="">
+    <div class="mb-3 required"><label class="form-label" for="name">Name*</label>
+                        <input class="form-control" id="name" name="name" required="" type="text" value=""
+                        oninvalid="alert('Please enter your name.')">
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address</label>
-                        <input class="form-control" id="email_address" name="email_address" required="" type="email" value=""
-                        oninvalid="alert('Please input a valid email address.')">
+    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
+                        <input class="form-control" id="email_address" name="email_address" type="text" value="">
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="phone">Phone</label>
+    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
                         <input class="form-control" id="phone" name="phone" required="" type="number" value=""
                                oninvalid="alert('Please input a valid phone number.')">
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="adults">Adults</label>
+    <div class="mb-3 required"><label class="form-label" for="adults">Adults (optional)</label>
                         <select class="form-select" id="adults" name="adults" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="children">Children(5-12 year)</label>
+    <div class="mb-3 required"><label class="form-label" for="children">Children(5-12 year) (optional)</label>
                         <select class="form-select" id="children" name="children" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="accommodation">Select Accommodation</label>
+    <div class="mb-3 required"><label class="form-label" for="accommodation">Select Accommodation (optional)</label>
                         <select class="form-select" id="accommodation" name="accommodation" required=""><option value="Please choose">Please choose</option><option value="Budget">Budget</option><option value="⭐⭐">⭐⭐</option><option value="⭐⭐⭐">⭐⭐⭐</option><option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option><option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option><option value="Luxury">Luxury</option></select>
 
         </div>
 
-    <div class="mb-3 required"><label class="form-label" for="message">Message</label>
+    <div class="mb-3 required"><label class="form-label" for="message">Message (optional)</label>
                         <textarea class="form-control" id="message" name="message" rows="10"></textarea>
         </div>
 
