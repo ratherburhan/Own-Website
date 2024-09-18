@@ -1,0 +1,703 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <article>
+
+      <!--
+        - #HERO
+      -->
+
+      <section class="section hero"
+        style="background-image: url('../static/assets/images/hero-bg-bottom.png') url('../static/assets/images/hero-bg-top.png')">
+        <div class="container">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-1.png') }}" width="61" height="61" alt="Vector Shape" class="shape shape-1">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-2.png') }}" width="56" height="74" alt="Vector Shape" class="shape shape-2">
+
+          <img src="{{ url_for('static', filename='assets/images/shape-3.png') }}" width="57" height="72" alt="Vector Shape" class="shape shape-3">
+
+          <div class="hero-content">
+
+            <p class="section-subtitle">Explore Paradise with us!</p>
+
+            <h2 class="hero-title">Wanderwell Travels</h2>
+
+            <p class="hero-text">
+              Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
+            </p>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="{{ url_for('static', filename='assets/images/hero-banner.png') }}" width="550" height="812" loading="lazy" alt="hero banner gondola"
+              class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+        <!-- Page Header-->
+    <section class="section about">
+        <div class="container">
+            <div class="about-content">
+
+              {% if not message: %}
+              <p class="section-subtitle question">Want to Travel? Submit your query.</p>
+              <h2 class="h2 section-title" id="contact-1">Request a Quote</h2>
+              {% else: %}
+              <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
+              <h2 class="h2 section-title contact">Successfully sent your message</h2>
+              {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- Main Content-->
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+          <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
+        <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
+
+    <div class="mb-3 required"><label class="form-label" for="name">Name*</label>
+                        <input class="form-control" id="name" name="name" required="" type="text" value=""
+                        oninvalid="alert('Please enter your name.')">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
+                        <input class="form-control" id="email_address" name="email_address" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
+                        <input class="form-control" id="phone" name="phone" required="" type="number" value=""
+                               oninvalid="alert('Please input a valid phone number.')">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="adults">Adults (optional)</label>
+                        <select class="form-select" id="adults" name="adults" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="children">Children(5-10 year) (optional)</label>
+                        <select class="form-select" id="children" name="children" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="accommodation">Select Accommodation (optional)</label>
+                        <select class="form-select" id="accommodation" name="accommodation" required=""><option value="Please choose">Please choose</option><option value="Budget">Budget</option><option value="⭐⭐">⭐⭐</option><option value="⭐⭐⭐">⭐⭐⭐</option><option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option><option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option><option value="Luxury">Luxury</option></select>
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="message">Message (optional)</label>
+                        <textarea class="form-control" id="message" name="message" rows="10"></textarea>
+        </div>
+
+            <input class="btn btn-primary btn-md" id="submit" name="submit" type="submit" value="Get Quote">
+
+    </form>
+      </div>
+
+    <div class="col-lg-4 col-md-8 contact-table mx-auto" id="custom-cards">
+<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg2.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="call"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">+91 7006893950</p>
+                    </li>
+            </ul>
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="mail"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">info@wanderwelltravels.in</p>
+                    </li>
+            </ul>
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">Inderhama, Burzahama near Power Station, Hazratbal, Srinagar, Jammu and Kashmir, 190006</p>
+                    </li>
+            </ul>
+
+              <ul class="social-list social-icons">
+
+          <li>
+            <a href="https://www.facebook.com/wanderwelltravels" target="_blank" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://twitter.com/@wanderwelltrvls" target="_blank" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/wanderwell.travels?igsh=eGphZmx2OXhtOTJx&utm_source=qr" target="_blank" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href=https://business.google.com/n/9068413222876130316/profile?hl=en-GB&fid=6323489742240405653 target="_blank" class="social-link">
+              <ion-icon name="logo-google"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+      <!--
+              - #DESTINATION
+            -->
+
+      <section class="section destination">
+        <div class="container">
+
+          <p class="section-subtitle">Destinations</p>
+
+          <h2 class="h2 section-title">Choose Your Place</h2>
+
+          <ul class="destination-list">
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='kashmir') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/kashmir.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Pahalgam, Kashmir" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Srinagar</p>
+
+                  <h3 class="h3 card-title">Kashmir</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li class="w-50">
+              <a href="{{ url_for('show_tours', destination='amarnath') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/amarnath.jpg') }}" width="1140" height="1100"
+                    loading="lazy" alt="Amarnath" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Holy Cave</p>
+
+                  <h3 class="h3 card-title">Amarnath</h3>
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="{{ url_for('show_tours', destination='ladakh') }}" class="destination-card">
+
+                <figure class="card-banner">
+                  <img src="{{ url_for('static', filename='assets/images/ladakh-new.jpg') }}" width="1110" height="480"
+                    loading="lazy" alt="Ladakh" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <p class="card-subtitle">Leh</p>
+
+                  <h3 class="h3 card-title">Ladakh</h3>
+                </div>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+      <!--
+        - #POPULAR
+      -->
+
+ <section class="section popular">
+
+      <div class="container">
+        <p class="section-subtitle">Featured Tours</p>
+
+          <h2 class="h2 section-title">Most Popular Tours</h2>
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+
+      <div class="cards-wrapper">
+
+        <ul class="popular-list">
+
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 1: %}
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
+                      alt="tour card" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">{{ tour.time }}</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹{{ tour.price }}</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
+
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
+                  </h3>
+
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+          {% endif %}
+        {% endfor %}
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="carousel-item" data-bs-interval="2000">
+      <div class="cards-wrapper">
+
+        <ul class="popular-list">
+
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 2: %}
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
+                      alt="tour card" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">{{ tour.time }}</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹{{ tour.price }}</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
+
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
+                  </h3>
+
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+          {% endif %}
+        {% endfor %}
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="cards-wrapper">
+        <ul class="popular-list">
+
+            {% for tour in popular_tours: %}
+              {% if tour.popularity == 3: %}
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
+                      alt="tour card" class="img-cover">
+                  </a>
+
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="P12D">{{ tour.time }}</time>
+                  </span>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹{{ tour.price }}</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
+
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
+                  </h3>
+
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+
+          {% endif %}
+        {% endfor %}
+
+        </ul>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
+</div>
+      </div>
+  </section>
+
+
+
+
+      <!--
+        - #PHOTOS
+      -->
+
+
+      <section class="section popular">
+        <div class="container">
+
+          <p class="section-subtitle">Explore Paradise</p>
+
+          <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
+
+
+
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" class="d-block w-100" alt="Thiksey Monastery in Thiksey">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Thiksey Monastery in Thiksey</h5>
+        <p>Ladakh</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" class="d-block w-100" alt="Kangdoori Meadow in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Kangdoori Meadow in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" class="d-block w-100" alt="Snow clad Road to Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Snow clad Road to Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-4.jpg') }}" class="d-block w-100" alt="Shikara and Houseboats in Srinagar">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Shikara and Houseboats in Srinagar</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-5.jpg') }}" class="d-block w-100" alt="Skiing in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Skiing in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-6.jpg') }}" class="d-block w-100" alt="Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-7.jpg') }}" class="d-block w-100" alt="Wildflowers Bloom in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Wildflowers Bloom in Gulmarg</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-8.jpg') }}" class="d-block w-100" alt="Tulip Garden in Srinagar">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Tulip Garden in Srinagar</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-9.jpg') }}" class="d-block w-100" alt="Gondola in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gondola in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Lidder River in winter in Pahalgam">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lidder River in winter in Pahalgam</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - # Why choose us
+      -->
+
+      <section class="section about">
+        <div class="container">
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Why Choose Us</p>
+
+            <h2 class="h2 section-title">What Sets Us Apart</h2>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="school"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Expertise</h3>
+
+                  <p class="about-item-text">
+                    Our team comprises seasoned travel experts with in-depth knowledge of diverse destinations, ensuring a well-planned and enriching experience for every traveler.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="pencil"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Customized Itineraries</h3>
+
+                  <p class="about-item-text">
+                    We believe in personalization. Our itineraries are tailor-made to suit your preferences, interests, and budget, guaranteeing a unique and memorable journey.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="construct"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Exceptional Service</h3>
+
+                  <p class="about-item-text">
+                    From start to finish, our dedicated team is committed to providing excellent service, ensuring your comfort, safety, and satisfaction throughout your journey.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="umbrella"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Value for Money</h3>
+
+                  <p class="about-item-text">
+                    We offer competitive pricing without compromising on quality, providing you with great value for your investment in unforgettable travel experiences.
+                  </p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="call"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">24/7 Support</h3>
+
+                  <p class="about-item-text">
+                    Your convenience and peace of mind are our priorities. Our support team is available round the clock to assist you with any queries or emergencies during your trip.
+                  </p>
+                </div>
+
+              </li>
+
+            </ul>
+
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Book Now</a>
+
+          </div>
+
+          <figure class="about-banner">
+            <img src="{{ url_for('static', filename='assets/images/why-us.png') }}" width="756" height="842" loading="lazy" alt="Why us?" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+{% endblock %}

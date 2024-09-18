@@ -126,6 +126,24 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     client.send(mail)
 
 
+@app.route("/landing_page", methods=["GET", "POST"])
+def landing_page():
+    popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
+    if request.method == "POST":
+        data = request.form
+        name = data["name"]
+        email = data["email_address"]
+        phone = data["phone"]
+        adults = data["adults"]
+        children = data["children"]
+        accommodation = data["accommodation"]
+        user_message = data["message"]
+        send_mail(name, email, phone, adults, children, accommodation, user_message)
+        return render_template("landing_page.html", message=True, popular_tours=popular_tours)
+
+    return render_template("landing_page.html", message=False, popular_tours=popular_tours)
+
+
 @app.route('/sitemap.xml')
 def sitemap_xml():
     return send_from_directory('.', 'sitemap.xml')
