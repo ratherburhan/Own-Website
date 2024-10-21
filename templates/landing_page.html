@@ -5,44 +5,118 @@
 <main>
     <article>
 
-      <!--
-        - #HERO
+<!--
+        - #PHOTOS
       -->
 
-      <section class="section hero"
-        style="background-image: url('../static/assets/images/hero-bg-bottom.png') url('../static/assets/images/hero-bg-top.png')">
+
+      <section class="section popular">
         <div class="container">
 
-          <img src="{{ url_for('static', filename='assets/images/shape-1.png') }}" width="61" height="61" alt="Vector Shape" class="shape shape-1">
+          <p class="section-subtitle">Explore Paradise with us</p>
 
-          <img src="{{ url_for('static', filename='assets/images/shape-2.png') }}" width="56" height="74" alt="Vector Shape" class="shape shape-2">
+          <h2 class="h2 section-title">Wanderwell Travels</h2>
 
-          <img src="{{ url_for('static', filename='assets/images/shape-3.png') }}" width="57" height="72" alt="Vector Shape" class="shape shape-3">
 
-          <div class="hero-content">
 
-            <p class="section-subtitle">Explore Paradise with us!</p>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
 
-            <h2 class="hero-title">Wanderwell Travels</h2>
-
-            <p class="hero-text">
-              Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
-            </p>
-
-            <div class="btn-group">
-              <a href="{{ url_for('contact') }}" class="btn btn-primary">Contact Us</a>
-
-              <a href="{{ url_for('about') }}" class="btn btn-outline">Learn More</a>
-            </div>
-
-          </div>
-
-          <figure class="hero-banner">
-            <img src="{{ url_for('static', filename='assets/images/hero-banner.png') }}" width="550" height="812" loading="lazy" alt="hero banner gondola"
-              class="w-100">
-          </figure>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Thiksey Monastery in Thiksey">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lidder River in winter in Pahalgam</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" class="d-block w-100" alt="Kangdoori Meadow in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Kangdoori Meadow in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" class="d-block w-100" alt="Snow clad Road to Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Snow clad Road to Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-4.jpg') }}" class="d-block w-100" alt="Shikara and Houseboats in Srinagar">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Shikara and Houseboats in Srinagar</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-5.jpg') }}" class="d-block w-100" alt="Skiing in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Skiing in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-6.jpg') }}" class="d-block w-100" alt="Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-7.jpg') }}" class="d-block w-100" alt="Wildflowers Bloom in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Wildflowers Bloom in Gulmarg</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-8.jpg') }}" class="d-block w-100" alt="Tulip Garden in Srinagar">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color: white">Tulip Garden in Srinagar</h5>
+        <p style="color: white">Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-9.jpg') }}" class="d-block w-100" alt="Gondola in Gulmarg">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Gondola in Gulmarg</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" class="d-block w-100" alt="Lidder River in winter in Pahalgam">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Thiksey Monastery in Thiksey</h5>
+        <p>Ladakh</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
         </div>
+
       </section>
 
 
@@ -52,7 +126,7 @@
             <div class="about-content">
 
               {% if not message: %}
-              <p class="section-subtitle question">Want to Travel? Submit your query.</p>
+              <p class="section-subtitle question">Kashmir awaits you. Hurry up!!</p>
               <h2 class="h2 section-title" id="contact-1">Request a Quote</h2>
               {% else: %}
               <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
@@ -180,418 +254,76 @@
   </div>
 </main>
 
-
-
-      <!--
-              - #DESTINATION
-            -->
-
-      <section class="section destination">
-        <div class="container">
-
-          <p class="section-subtitle">Destinations</p>
-
-          <h2 class="h2 section-title">Choose Your Place</h2>
-
-          <ul class="destination-list">
-
-            <li class="w-50">
-              <a href="{{ url_for('show_tours', destination='kashmir') }}" class="destination-card">
-
-                <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/kashmir.jpg') }}" width="1140" height="1100"
-                    loading="lazy" alt="Pahalgam, Kashmir" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-                  <p class="card-subtitle">Srinagar</p>
-
-                  <h3 class="h3 card-title">Kashmir</h3>
-                </div>
-
-              </a>
-            </li>
-
-            <li class="w-50">
-              <a href="{{ url_for('show_tours', destination='amarnath') }}" class="destination-card">
-
-                <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/amarnath.jpg') }}" width="1140" height="1100"
-                    loading="lazy" alt="Amarnath" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-                  <p class="card-subtitle">Holy Cave</p>
-
-                  <h3 class="h3 card-title">Amarnath</h3>
-                </div>
-
-              </a>
-            </li>
-
-            <li>
-              <a href="{{ url_for('show_tours', destination='ladakh') }}" class="destination-card">
-
-                <figure class="card-banner">
-                  <img src="{{ url_for('static', filename='assets/images/ladakh-new.jpg') }}" width="1110" height="480"
-                    loading="lazy" alt="Ladakh" class="img-cover">
-                </figure>
-
-                <div class="card-content">
-                  <p class="card-subtitle">Leh</p>
-
-                  <h3 class="h3 card-title">Ladakh</h3>
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
-
       <!--
         - #POPULAR
       -->
 
- <section class="section popular">
-
-      <div class="container">
-        <p class="section-subtitle">Featured Tours</p>
-
-          <h2 class="h2 section-title">Most Popular Tours</h2>
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-
-      <div class="cards-wrapper">
-
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 1: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
-
-      </div>
-    </div>
-
-    <div class="carousel-item" data-bs-interval="2000">
-      <div class="cards-wrapper">
-
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 2: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
-
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 3: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
-    </div>
-
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-
-</div>
-</div>
-      </div>
-  </section>
-
-
-
-
-      <!--
-        - #PHOTOS
-      -->
-
-
       <section class="section popular">
         <div class="container">
 
-          <p class="section-subtitle">Explore Paradise</p>
+          <p class="section-subtitle">Featured Tours</p>
 
-          <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
+          <h2 class="h2 section-title">{{ destination }} Tours</h2>
 
+          <ul class="popular-list">
+            {% for tour in tours: %}
+            <li>
+              <div class="popular-card">
 
+                <figure class="card-banner">
+                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
+                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
+                      alt="tour card" class="img-cover">
+                  </a>
 
-      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                  <span class="card-badge">
+                    <ion-icon name="time-outline"></ion-icon>
 
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" class="d-block w-100" alt="Thiksey Monastery in Thiksey">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Thiksey Monastery in Thiksey</h5>
-        <p>Ladakh</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" class="d-block w-100" alt="Kangdoori Meadow in Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Kangdoori Meadow in Gulmarg</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-3.jpg') }}" class="d-block w-100" alt="Snow clad Road to Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Snow clad Road to Gulmarg</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-4.jpg') }}" class="d-block w-100" alt="Shikara and Houseboats in Srinagar">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 style="color: white">Shikara and Houseboats in Srinagar</h5>
-        <p style="color: white">Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-5.jpg') }}" class="d-block w-100" alt="Skiing in Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Skiing in Gulmarg</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-6.jpg') }}" class="d-block w-100" alt="Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Gulmarg</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-7.jpg') }}" class="d-block w-100" alt="Wildflowers Bloom in Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 style="color: white">Wildflowers Bloom in Gulmarg</h5>
-        <p style="color: white">Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-8.jpg') }}" class="d-block w-100" alt="Tulip Garden in Srinagar">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 style="color: white">Tulip Garden in Srinagar</h5>
-        <p style="color: white">Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-9.jpg') }}" class="d-block w-100" alt="Gondola in Gulmarg">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Gondola in Gulmarg</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Lidder River in winter in Pahalgam">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Lidder River in winter in Pahalgam</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+                    <time datetime="P12D">{{ tour.time }}</time>
+                  </span>
+                </figure>
 
+                <div class="card-content">
+
+                  <div class="card-wrapper">
+                    <div class="card-price">From ₹{{ tour.price }}</div>
+
+                    <div class="card-rating">
+                      <ion-icon name="airplane-outline"></ion-icon>
+                      <ion-icon name="bed"></ion-icon>
+                      <ion-icon name="car"></ion-icon>
+                      <ion-icon name="restaurant"></ion-icon>
+                      <ion-icon name="glasses"></ion-icon>
+
+                    </div>
+                  </div>
+
+                  <h3 class="card-title">
+                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
+                  </h3>
+
+                  <ul class="location-card">
+                    <li>
+                      <ion-icon class="location" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <address class="card-location">{{ tour.location }}</address>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
-
       </section>
+
+
+
+
 
 
       <!--
@@ -703,6 +435,9 @@
       </section>
 
     </article>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.1300347114147!2d74.85974257404693!3d34.168592911580554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1856edfd8f587%3A0x57c18c6ad310d895!2sWanderwell%20Travels!5e0!3m2!1sen!2sin!4v1711437649237!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
   </main>
 
 

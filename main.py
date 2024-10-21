@@ -128,7 +128,8 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 
 @app.route("/landing_page", methods=["GET", "POST"])
 def landing_page():
-    popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
+    result = db.session.execute(db.select(Tour).where(Tour.destination == "kashmir"))
+    tours = result.scalars().all()
     if request.method == "POST":
         data = request.form
         name = data["name"]
@@ -139,9 +140,9 @@ def landing_page():
         accommodation = data["accommodation"]
         user_message = data["message"]
         send_mail(name, email, phone, adults, children, accommodation, user_message)
-        return render_template("landing_page.html", message=True, popular_tours=popular_tours)
+        return render_template("landing_page.html", message=True, tours=tours, destination="Kashmir")
 
-    return render_template("landing_page.html", message=False, popular_tours=popular_tours)
+    return render_template("landing_page.html", message=False, tours=tours, destination="Kashmir")
 
 
 @app.route('/sitemap.xml')
