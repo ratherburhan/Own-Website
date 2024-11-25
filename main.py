@@ -135,10 +135,10 @@ def landing_page():
         name = data["name"]
         email = data["email_address"]
         phone = data["phone"]
-        adults = data["adults"]
-        children = data["children"]
-        accommodation = data["accommodation"]
-        user_message = data["message"]
+        adults = "No Data"
+        children = "No Data"
+        accommodation = "No Data"
+        user_message = "No Data"
         send_mail(name, email, phone, adults, children, accommodation, user_message)
         return render_template("landing_page.html", message=True, tours=tours, destination="Kashmir")
 

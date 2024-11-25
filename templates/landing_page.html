@@ -10,18 +10,112 @@
       -->
 
 
-      <section class="section popular" style="padding:20px">
+      <section class="section hero"
+        style="background-image: url('../static/assets/images/hero-bg-bottom.png') url('../static/assets/images/hero-bg-top.png');padding:10px">
         <div class="container">
 
-          <p class="section-subtitle">Explore Paradise with us</p>
 
-          <h2 class="h2 section-title" style="margin-bottom: 20px">Wanderwell Travels</h2>
+          <div class="hero-content">
 
-           <p class="hero-text" style="text-align: center">
+            <p class="section-subtitle">Explore Paradise with us!</p>
+
+            <h2 class="hero-title">Wanderwell Travels</h2>
+
+            <p class="hero-text">
               Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
             </p>
-          
 
+            <div class="btn-group">
+              <a href="tel:917006893950">
+              <ul class="btn btn-primary location-card">
+                    <li style="padding-left:2em">
+                      <ion-icon size="large" color="white" class="location contact-icon" name="call"> </ion-icon>
+                    </li>
+
+                    <li style="padding-left:6em; padding-right:2.8em; font-size:20px">
+                      +91 7006893950
+                    </li>
+              </ul>
+                </a>
+
+              <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank">
+                <ul class="btn btn-outline location-card">
+                    <li style="padding-left:2em">
+                      <ion-icon size="large" name="logo-whatsapp"></ion-icon>
+                    </li>
+
+                    <li style="padding-left:8.5em; padding-right:4em; font-size:20px">
+                      Whatsapp
+                    </li>
+              </ul>
+              </a>
+            </div>
+
+          </div>
+
+
+        </div>
+      </section>
+
+        <!-- Page Header-->
+    <section class="section about" style="padding:10px">
+        <div class="container">
+            <div class="about-content">
+
+              {% if not message: %}
+              <p class="section-subtitle question" style="font-size:30px">Kashmir awaits you. Hurry up!!</p>
+              <h2 class="h2 section-title" id="contact-1" style="font-size:40px">Request a Quote</h2>
+              {% else: %}
+              <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
+              <h2 class="h2 section-title contact">Successfully sent your message</h2>
+              {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- Main Content-->
+
+  <div class="container">
+
+      <div class="col-lg-8 col-md-10">
+
+          <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
+        <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
+
+    <div class="mb-3 required"><label class="form-label" for="name">Name (optional)</label>
+                        <input class="form-control" id="name" name="name" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
+                        <input class="form-control" id="email_address" name="email_address" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
+                        <input class="form-control" id="phone" name="phone" required="" type="number" value=""
+                               oninvalid="alert('Please input a valid phone number.')">
+
+        </div>
+
+
+            <input class="btn btn-primary btn-md" id="submit" name="submit" type="submit" value="Plan your Trip now">
+
+    </form>
+      </div>
+      </div>
+
+
+       <section class="section popular">
+        <div class="container">
+
+          <p class="section-subtitle">Explore Paradise</p>
+
+          <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
+
+      <section>
       <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -33,7 +127,6 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
 
   </div>
   <div class="carousel-inner">
@@ -100,13 +193,7 @@
         <p>Kashmir</p>
       </div>
     </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url_for('static', filename='assets/images/popular-1.jpg') }}" class="d-block w-100" alt="Lidder River in winter in Pahalgam">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Thiksey Monastery in Thiksey</h5>
-        <p>Ladakh</p>
-      </div>
-    </div>
+
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -118,144 +205,8 @@
   </button>
 </div>
 
-        </div>
-
       </section>
 
-
-        <!-- Page Header-->
-    <section class="section about">
-        <div class="container">
-            <div class="about-content">
-
-              {% if not message: %}
-              <p class="section-subtitle question">Kashmir awaits you. Hurry up!!</p>
-              <h2 class="h2 section-title" id="contact-1" style="font-size:40px">Request a Quote</h2>
-              {% else: %}
-              <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
-              <h2 class="h2 section-title contact">Successfully sent your message</h2>
-              {% endif %}
-
-            </div>
-        </div>
-    </section>
-
-
-<!-- Main Content-->
-<main class="mb-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-          <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
-        <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
-
-    <div class="mb-3 required"><label class="form-label" for="name">Name*</label>
-                        <input class="form-control" id="name" name="name" required="" type="text" value=""
-                        oninvalid="alert('Please enter your name.')">
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
-                        <input class="form-control" id="email_address" name="email_address" type="text" value="">
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
-                        <input class="form-control" id="phone" name="phone" required="" type="number" value=""
-                               oninvalid="alert('Please input a valid phone number.')">
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="adults">Adults (optional)</label>
-                        <select class="form-select" id="adults" name="adults" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="children">Children(5-10 year) (optional)</label>
-                        <select class="form-select" id="children" name="children" required=""><option value="Please choose">Please choose</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option></select>
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="accommodation">Select Accommodation (optional)</label>
-                        <select class="form-select" id="accommodation" name="accommodation" required=""><option value="Please choose">Please choose</option><option value="Budget">Budget</option><option value="⭐⭐">⭐⭐</option><option value="⭐⭐⭐">⭐⭐⭐</option><option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option><option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option><option value="Luxury">Luxury</option></select>
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="message">Message (optional)</label>
-                        <textarea class="form-control" id="message" name="message" rows="10"></textarea>
-        </div>
-
-            <input class="btn btn-primary btn-md" id="submit" name="submit" type="submit" value="Get Quote">
-
-    </form>
-      </div>
-
-    <div class="col-lg-4 col-md-8 contact-table mx-auto" id="custom-cards">
-<div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg2.jpg');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="call"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">+91 7006893950</p>
-                    </li>
-            </ul>
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="mail"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">info@wanderwelltravels.in</p>
-                    </li>
-            </ul>
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">Inderhama, Burzahama near Power Station, Hazratbal, Srinagar, Jammu and Kashmir, 190006</p>
-                    </li>
-            </ul>
-
-              <ul class="social-list social-icons">
-
-          <li>
-            <a href="https://www.facebook.com/wanderwelltravels" target="_blank" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://twitter.com/@wanderwelltrvls" target="_blank" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/wanderwell.travels?igsh=eGphZmx2OXhtOTJx&utm_source=qr" target="_blank" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href=https://business.google.com/n/9068413222876130316/profile?hl=en-GB&fid=6323489742240405653 target="_blank" class="social-link">
-              <ion-icon name="logo-google"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
 
       <!--
         - #POPULAR
