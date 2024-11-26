@@ -11,7 +11,8 @@
 
 
       <section class="section hero"
-        style="background-image: url('../static/assets/images/hero-bg-bottom.png') url('../static/assets/images/hero-bg-top.png');padding:20px">
+        style="background-image: url('../static/assets/images/popular-2.jpg'); background-repeat: no-repeat;
+  background-size: 100% 100%; padding: 20px">
         <div class="container">
 
 
@@ -21,25 +22,14 @@
 
             <h2 class="hero-title">Wanderwell Travels</h2>
 
-            <p class="hero-text">
+            <p class="hero-text" style="color: black">
               Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
             </p>
 
             <div class="btn-group">
-              <a href="tel:917006893950">
-              <ul class="btn btn-primary location-card">
-                    <li style="padding-left:2em; padding-right:2em">
-                      <ion-icon size="large" color="white" class="location contact-icon" name="call"> </ion-icon>
-                    </li>
-
-                    <li style="font-size:20px">
-                      +91 7006893950
-                    </li>
-              </ul>
-                </a>
 
               <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank">
-                <ul class="btn btn-outline location-card">
+                <ul class="btn btn-primary location-card">
                     <li style="padding-left:2em; padding-right:4em">
                       <ion-icon size="large" name="logo-whatsapp"></ion-icon>
                     </li>
@@ -49,6 +39,20 @@
                     </li>
               </ul>
               </a>
+
+              <a href="tel:917006893950">
+              <ul class="btn btn-outline location-card">
+                    <li style="padding-left:2em; padding-right:2em">
+                      <ion-icon size="large" class="location contact-icon" name="call"> </ion-icon>
+                    </li>
+
+                    <li style="font-size:20px; color:black">
+                      +91 7006893950
+                    </li>
+              </ul>
+                </a>
+
+
             </div>
 
           </div>
@@ -63,7 +67,7 @@
             <div class="about-content">
 
               {% if not message: %}
-              <p class="section-subtitle question" style="font-size:30px">Kashmir awaits you. 30% off offer ends today. Hurry up!!</p>
+              <p class="section-subtitle question" style="font-size:30px">Kashmir awaits you. 30% off offer ends soon. Hurry up!!</p>
               <h2 class="h2 section-title" id="contact-1" style="font-size:30px">Request a quote to get 30% off.</h2>
               {% else: %}
               <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
