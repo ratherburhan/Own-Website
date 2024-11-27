@@ -26,13 +26,14 @@
             <p class="hero-text" style="color: black">
               Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
             </p>
+                 </div>
             </div>
-          </div>
+
 
             <div class="btn-group">
 
-              <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank">
-                <ul class="btn btn-primary location-card">
+              <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank" onsubmit="gtag_report_conversion2()">
+                <ul class="btn btn-primary location-card" >
                     <li style="padding-left:2em; padding-right:2em">
                       <ion-icon size="large" name="logo-whatsapp"></ion-icon>
                     </li>
@@ -43,7 +44,7 @@
               </ul>
               </a>
 
-              <a href="tel:917006893950">
+              <a href="tel:917006893950" onsubmit="gtag_report_conversion2()">
               <ul class="btn btn-outline location-card">
                     <li style="padding-left:2em; padding-right:2.32em">
                       <ion-icon size="large" class="location contact-icon" name="call"> </ion-icon>
@@ -122,20 +123,21 @@
 
           <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
 
-      <section>
-      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
 
-  </div>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+
+        </div>
+      </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Thiksey Monastery in Thiksey">
@@ -393,6 +395,7 @@
           </figure>
 
         </div>
+
       </section>
     </article>
 
