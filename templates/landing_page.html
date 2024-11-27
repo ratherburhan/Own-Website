@@ -116,7 +116,12 @@
       </div>
 
 
-       <section class="section popular">
+       <!--
+        - #PHOTOS
+      -->
+
+
+      <section class="section popular">
         <div class="container">
 
           <p class="section-subtitle">Explore Paradise</p>
@@ -124,29 +129,22 @@
           <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
 
 
-      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
 
-        </div>
-      </div>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Thiksey Monastery in Thiksey">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Lidder River in winter in Pahalgam</h5>
-        <p>Kashmir</p>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
       <img src="{{ url_for('static', filename='assets/images/popular-2.jpg') }}" class="d-block w-100" alt="Kangdoori Meadow in Gulmarg">
       <div class="carousel-caption d-none d-md-block">
         <h5>Kangdoori Meadow in Gulmarg</h5>
@@ -202,7 +200,13 @@
         <p>Kashmir</p>
       </div>
     </div>
-
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='assets/images/popular-10.jpg') }}" class="d-block w-100" alt="Lidder River in winter in Pahalgam">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lidder River in winter in Pahalgam</h5>
+        <p>Kashmir</p>
+      </div>
+    </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -214,8 +218,9 @@
   </button>
 </div>
 
-      </section>
+        </div>
 
+      </section>
 
       <!--
         - #POPULAR
