@@ -18,19 +18,11 @@
 
           <div class="hero-content">
 
-            <p class="section-subtitle">Explore Paradise with us!</p>
+            <p class="section-subtitle" style="font-size:35px">Explore Paradise with us!</p>
 
-            <h2 class="hero-title">Wanderwell Travels</h2>
-            <div class="row">
-                 <div class="col-lg-9 col-md-9">
-            <p class="hero-text" style="color: black">
-              Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
-            </p>
-                 </div>
-            </div>
+            <h2 class="hero-title" style="font-size:50px">Wanderwell Travels</h2>
 
-
-            <div class="btn-group">
+            <div class="btn-group" style="padding-bottom:8em;">
 
               <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank" onclick="gtag_report_conversion2()">
                 <ul class="btn btn-primary location-card" >
@@ -56,8 +48,14 @@
               </ul>
                 </a>
 
-
             </div>
+
+            <h3 class="h2 section-title" style="font-size:30px; padding-bottom:1em">Explore the Majestic Beauty of Kashmir</h3>
+
+            <p class="hero-text">
+              Looking for a magical escape to Kashmir? Discover the beauty of Kashmir with our tailor-made travel packages! Explore the breathtaking landscapes of Gulmarg, the winter wonderland perfect for skiing; the serene meadows of Sonamarg; the tranquil charm of Pahalgam; the untouched beauty of Doodhpathri; the cultural richness of Srinagar with its famous Dal Lake; and the peaceful retreat of Yousmarg. Let us craft your perfect Kashmir getaway today—book now for an unforgettable adventure in paradise!
+            </p>
+
 
           </div>
 
@@ -66,28 +64,35 @@
       </section>
 
         <!-- Page Header-->
-    <section class="section about" style="padding-bottom:20px;padding-top:10px">
-        <div class="container">
+
+       <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8 col-md-10">
+
+    <section class="section about" style="padding-bottom:10px;padding-top:10px">
+
             <div class="about-content">
 
               {% if not message: %}
-              <p class="section-subtitle question" style="font-size:30px">Kashmir awaits you. 30% off offer ends soon. Hurry up!!</p>
-              <h2 class="h2 section-title" id="contact-1" style="font-size:30px">Request a quote to get 30% off.</h2>
+              <p class="section-subtitle question" style="font-size:28px">Get Your Free Kashmir Travel Plan!</p>
+              <h2 class="h2 section-title" id="contact-1" style="font-size:30px">30% off on all Kashmir Packages. Offer ends soon. Hurry up!!</h2>
+              <p class="hero-text">
+              Fill out the form below, and our travel experts will design a custom itinerary just for you!
+            </p>
               {% else: %}
-              <p class="section-subtitle question" id="contact-2">We will contact you shortly.</p>
-              <h2 class="h2 section-title contact">Successfully sent your message</h2>
+              <p class="section-subtitle question" id="contact-2" style="font-size:28px">We will contact you shortly.</p>
+              <h2 class="h2 section-title contact" style="font-size:30px">Successfully sent your message</h2>
               {% endif %}
 
             </div>
-        </div>
+
     </section>
 
 
 <!-- Main Content-->
 
-  <div class="container">
 
-      <div class="col-lg-8 col-md-10">
 
           <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
         <input id="csrf_token" name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
@@ -113,7 +118,73 @@
 
     </form>
       </div>
+
+
+      <div class="col-lg-4 col-md-8 contact-table mx-auto" id="custom-cards" style="padding-top:40px; padding-bottom:30px">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg2.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="call"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">+91 7006893950</p>
+                    </li>
+            </ul>
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="mail"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">info@wanderwelltravels.in</p>
+                    </li>
+            </ul>
+            <ul class="location-card">
+                    <li>
+                      <ion-icon class="location contact-icon" name="location"> </ion-icon>
+                    </li>
+
+                    <li>
+                      <p class="contact-info">Inderhama, Burzahama near Power Station, Hazratbal, Srinagar, Jammu and Kashmir, 190006</p>
+                    </li>
+            </ul>
+
+              <ul class="social-list social-icons">
+
+          <li>
+            <a href="https://www.facebook.com/wanderwelltravels" target="_blank" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://twitter.com/@wanderwelltrvls" target="_blank" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/wanderwell.travels?igsh=eGphZmx2OXhtOTJx&utm_source=qr" target="_blank" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href=https://business.google.com/n/9068413222876130316/profile?hl=en-GB&fid=6323489742240405653 target="_blank" class="social-link">
+              <ion-icon name="logo-google"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+          </div>
+        </div>
       </div>
+    </div>
+    </div>
+
 
 
        <!--
@@ -126,8 +197,103 @@
 
           <p class="section-subtitle">Explore Paradise</p>
 
-          <h2 class="h2 section-title">Mesmerizing Kashmir</h2>
+          <h2 class="h2 section-title">Explore Kashmir's Hidden Gems</h2>
 
+
+
+            <ul class="about-list">
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Gulmarg – Snow-Capped Peaks and Adventure Awaits</h3>
+
+                  <p class="about-item-text">
+                    Experience the thrill of Gulmarg, where you can ski on powdery slopes, enjoy breathtaking views from the Gondola, or simply walk through its beautiful meadows.</p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Sonamarg – The Valley of Gold</h3>
+
+                  <p class="about-item-text">
+                    With its towering peaks and pristine rivers, Sonamarg is a nature lover's dream. Trek, camp, or just relax in this tranquil paradise.</p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Pahalgam – The Peaceful Escape</h3>
+
+                  <p class="about-item-text">
+                    Known for its lush greenery, serene rivers, and peaceful atmosphere, Pahalgam offers a perfect mix of relaxation and outdoor exploration.</p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Srinagar – The Heart of Kashmir</h3>
+
+                  <p class="about-item-text">
+                    From the serene Dal Lake to the magnificent Mughal Gardens, Srinagar is the heart of Kashmir. Enjoy a Shikara ride on Dal Lake, explore the historical sites like the Shankaracharya Temple, and indulge in authentic Kashmiri cuisine. Srinagar is the perfect blend of culture and natural beauty.</p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Doodhpathri – The Milk Valley</h3>
+
+                  <p class="about-item-text">
+                    Escape to Doodhpathri, a serene valley with vast meadows, flowing streams, and breathtaking views—a true hidden gem in Kashmir.</p>
+                </div>
+
+              </li>
+
+              <li class="about-item">
+
+                <div class="about-item-icon">
+                  <ion-icon name="snow-outline"></ion-icon>
+                </div>
+
+                <div class="about-item-content">
+                  <h3 class="h3 about-item-title">Yousmarg – Your Tranquil Retreat</h3>
+
+                  <p class="about-item-text">
+                    Yousmarg is a quiet paradise surrounded by dense forests and majestic mountains. It's perfect for those seeking solitude, natural beauty, and peace.</p>
+                </div>
+
+              </li>
+
+            </ul>
 
 
       <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-theme="dark">
