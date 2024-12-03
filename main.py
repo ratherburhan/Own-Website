@@ -7,8 +7,10 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
 import os
 import mailtrap as mt
+import requests
 
-
+place_id = os.environ.get('PLACE_ID')
+google_api_key = os.environ.get('GOOGLE_API_KEY')
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 app.config['CKEDITOR_SERVE_LOCAL'] = True
@@ -59,7 +61,8 @@ def show_year():
 @app.route('/')
 def home():
     popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
-    return render_template("index.html", popular_tours=popular_tours)
+    reviews = fetch_google_reviews()
+    return render_template("index.html", popular_tours=popular_tours, reviews=reviews)
 
 
 @app.route('/show_tours')
@@ -126,10 +129,21 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     client.send(mail)
 
 
+def fetch_google_reviews():
+    url = (f"https://maps.googleapis.com/maps/api/place/details/json?place_id={place_id}"
+           f"&fields=reviews&key={google_api_key}")
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return data.get("result", {}).get("reviews", [])
+    return []
+
+
 @app.route("/landing_page", methods=["GET", "POST"])
 def landing_page():
     result = db.session.execute(db.select(Tour).where(Tour.destination == "kashmir"))
     tours = result.scalars().all()
+    reviews = fetch_google_reviews()
     if request.method == "POST":
         data = request.form
         name = data["name"]
@@ -140,9 +154,9 @@ def landing_page():
         accommodation = "No Data"
         user_message = "No Data"
         send_mail(name, email, phone, adults, children, accommodation, user_message)
-        return render_template("landing_page.html", message=True, tours=tours, destination="Kashmir")
+        return render_template("landing_page.html", message=True, tours=tours, destination="Kashmir", reviews=reviews)
 
-    return render_template("landing_page.html", message=False, tours=tours, destination="Kashmir")
+    return render_template("landing_page.html", message=False, tours=tours, destination="Kashmir", reviews=reviews)
 
 
 @app.route('/sitemap.xml')

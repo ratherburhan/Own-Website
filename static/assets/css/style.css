@@ -1190,3 +1190,21 @@ iframe {
 .book-button {
     margin-bottom: 60px;
   }
+
+.stars span {
+            display: inline-block; /* Ensures stars are inline */
+        }
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: none; /* Remove inversion */
+    background-color: #343a40; /* Dark gray color */
+    border-radius: 50%; /* Optional: Add rounded appearance */
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    opacity: 1; /* Ensure visibility */
+    background-color: transparent; /* No background */
+    border: none; /* Clean look */
+}

@@ -570,6 +570,70 @@
       </section>
     </article>
 
+
+   <div class="container mt-5" style="padding-bottom:60px">
+        <p class="section-subtitle" style="text-align:center">Customer Testimonials</p>
+
+          <h2 class="h2 section-title" style="text-align:center">What Our Customers Say</h2>
+
+        <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Carousel Items -->
+            <div class="carousel-inner" style="padding-top:20px">
+                {% for review in reviews %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <div class="card mx-auto" style="max-width: 600px; height: 300px;
+                    background-color: hsl(180, 98%, 31%); color: hsl(0, 0%, 98%); border: none;">
+                        <div class="card-body" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="{{ review.profile_photo_url }}"
+                                     alt="{{ review.author_name }}'s profile picture"
+                                     class="rounded-circle me-3"
+                                     style="width: 60px; height: 60px;">
+                                <h5 class="mb-0" style="font-size:18px">{{ review.author_name }}</h5>
+                            </div>
+                            <div class="stars">
+                                {% for star in range(review.rating) %}
+                                <span class="text-warning">&#9733;</span>
+                                {% endfor %}
+                                {% for star in range(5 - review.rating) %}
+                                <span class="text-secondary">&#9733;</span>
+                                {% endfor %}
+                            </div>
+                            <p class="card-text mt-3" style="font-size:14px">"{{ review.text }}"</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                {% for i in reviews %}
+                <button
+                    type="button"
+                    data-bs-target="#reviewsCarousel"
+                    data-bs-slide-to="{{ loop.index0 }}"
+                    class="{% if loop.first %}active{% endif %}"
+                    aria-current="{% if loop.first %}true{% endif %}"
+                    aria-label="Slide {{ loop.index }}">
+                </button>
+                {% endfor %}
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
   <div class="container">
 
           <div class="hero-content">
