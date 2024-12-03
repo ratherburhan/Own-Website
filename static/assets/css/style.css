@@ -1208,3 +1208,16 @@ iframe {
     background-color: transparent; /* No background */
     border: none; /* Clean look */
 }
+
+#reviewsCarousel {
+        position: relative;
+     }
+     .carousel-control-prev.reviews, .carousel-control-next.reviews{
+        position: absolute;
+        top: 15%;
+        transform: TranslateY(-50%);
+     }
+
+.carousel-indicators.reviews {
+        bottom:-15px
+}
