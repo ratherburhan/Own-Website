@@ -1241,8 +1241,11 @@ iframe {
 /* Custom modal size for smaller screens */
     @media (max-width: 576px) {
       .modal-dialog {
-        max-width: 60%; /* Adjust the modal width for mobile screens */
+        max-width: 70%; /* Adjust the modal width for mobile screens */
         margin: 0 auto;
       }
     }
 
+.form-label.popup {
+    font-size: 12px;
+}
