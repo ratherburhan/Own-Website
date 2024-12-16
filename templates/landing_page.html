@@ -797,10 +797,70 @@
     </div>
     </div>
 
+{% if not message: %}
+    <!-- Modal -->
+  <div class="modal fade" id="autoPopupModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+          <div class="modal-header">
+
+              <section class="section about" style="padding-bottom:0px;padding-top:10px">
+
+                <div class="about-content">
+
+                  <p class="section-subtitle question" style="font-size:22px">Get Your Free Kashmir Travel Plan!</p>
+                  <h2 class="h2 section-title" style="font-size:20px">Avail flat 50% off. Fill out the form below.</h2>
+
+                </div>
+
+              </section>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+<!-- Main Content-->
+        <div class="modal-body">
+          <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()" style="padding-bottom:5px">
+        <input name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
+
+    <div class="mb-3 required"><label class="form-label" for="name">Name (optional)</label>
+                        <input class="form-control" name="name" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
+                        <input class="form-control" name="email_address" type="text" value="">
+
+        </div>
+
+    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
+                        <input class="form-control" name="phone" required="" type="number" value=""
+                               oninvalid="alert('Please input a valid phone number.')">
+
+        </div>
+
+
+            <input class="btn btn-primary btn-md" name="submit" type="submit" value="Plan your Trip now">
+
+    </form>
+            </div>
+      </div>
+           </div>
+         </div>
+    {% endif %}
 
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.1300347114147!2d74.85974257404693!3d34.168592911580554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e1856edfd8f587%3A0x57c18c6ad310d895!2sWanderwell%20Travels!5e0!3m2!1sen!2sin!4v1711437649237!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="1" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
   </main>
 
 
+{% endblock %}
+
+{% block javascript %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        const myModal = new bootstrap.Modal(document.getElementById('autoPopupModal'));
+        myModal.show();
+      }, 15000);
+    });
+  </script>
 {% endblock %}
