@@ -47,6 +47,9 @@ class Tour(db.Model):
     day6: Mapped[str] = mapped_column(String(3000), nullable=True)
     day7: Mapped[str] = mapped_column(String(3000), nullable=True)
     day8: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day9: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day10: Mapped[str] = mapped_column(String(3000), nullable=True)
+    day11: Mapped[str] = mapped_column(String(3000), nullable=True)
 
 
 with app.app_context():
