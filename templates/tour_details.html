@@ -159,6 +159,55 @@
     </div>
   </div>
   {% endif %}
+
+    {% if tour.days > 8: %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingNine">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+        {% set list9 = tour.day9.split('%') %}
+        {{ list9[0] }}
+      </button>
+    </h2>
+    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{ list9[1] }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+    {% if tour.days > 9: %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTen">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+        {% set list10 = tour.day10.split('%') %}
+        {{ list10[0] }}
+      </button>
+    </h2>
+    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{ list10[1] }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+    {% if tour.days > 10: %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingEleven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+        {% set list11 = tour.day11.split('%') %}
+        {{ list11[0] }}
+      </button>
+    </h2>
+    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{ list11[1] }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
 </div>
 </div>
 
