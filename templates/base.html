@@ -70,22 +70,40 @@
     }
     </script>
 
-  <!-- Event snippet for Call on Number from Website conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion2(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
+      <!-- Event snippet for Whatsapp Click Website conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion2(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16577810937/E_MXCOaul-8ZEPmj9eA9',
+          'event_callback': callback
+      });
+      return false;
     }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-16577810937/E_MXCOaul-8ZEPmj9eA9',
-      'event_callback': callback
-  });
-  return false;
-}
-</script>
+    </script>
+
+      <!-- Event snippet for Phone Number Click - Website conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion3(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16577810937/wP4uCNOK3oMaEPmj9eA9',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
 
   <script>
       gtag('config', 'AW-16577810937/B9itCJ38-IAaEPmj9eA9', {
