@@ -21,11 +21,13 @@
 
             <h2 class="hero-title" style="font-size:45px; margin-bottom:25px">Wanderwell Travels</h2>
 
-              <p class="section-subtitle question" style="font-size:26px; margin-bottom:5px">Limited-Time Offer</p>
-              <h3 class="h2 section-title" style="font-size:24px">Get up to 50% off all Kashmir Tour Packages!!</h3>
-              <p class="hero-text" style="margin-bottom:10px;margin-top:5px">Your Kashmir Dream Trip is just a button click away. <b>Whatsapp or Call Now for Best Deals</b></p>
+<!--              <p class="section-subtitle question" style="font-size:26px; margin-bottom:5px">Limited-Time Offer</p>-->
+<!--              <h3 class="h2 section-title" style="font-size:24px">Get up to 50% off all Kashmir Tour Packages!!</h3>-->
+              <p class="hero-text" style="margin-bottom:10px;margin-top:5px">
+              Discover the enchanting beauty of Kashmir with us. We specialize in crafting unforgettable experiences amidst the breathtaking landscapes of the paradise on earth.
+            </p>
 
-            <div class="btn-group" style="padding-bottom:4em;">
+            <div class="btn-group" style="padding-bottom:6em;">
 
               <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank" onclick="gtag_report_conversion2()">
                 <ul class="btn btn-primary location-card" >
@@ -34,19 +36,19 @@
                     </li>
 
                     <li style="font-size:15px">
-                      Whatsapp
+                      Whatsapp : 7006893950
                     </li>
               </ul>
               </a>
 
               <a href="tel:917006893950" onclick="gtag_report_conversion3()">
               <ul class="btn btn-outline location-card">
-                    <li style="padding-left:2em; padding-right:2.32em">
+                    <li style="padding-left:2em; padding-right:3.4em">
                       <ion-icon size="large" class="location contact-icon" name="call"> </ion-icon>
                     </li>
 
                     <li style="font-size:15px; color:black">
-                      Call Now
+                      Call Us : 7006893950
                     </li>
               </ul>
                 </a>
@@ -604,7 +606,7 @@
 
             </ul>
 
-            <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank" onclick="gtag_report_conversion2()" class="btn btn-primary">Book Now</a>
+            <a href="{{ url_for('contact') }}" target="_blank" onclick="gtag_report_conversion2()" class="btn btn-primary">Book Now</a>
 
           </div>
 
@@ -679,168 +681,6 @@
         </div>
     </div>
 
-
-
-  <div class="container">
-
-        <p class="section-subtitle question" style="font-size:26px; margin-bottom:5px">Limited-Time Offer</p>
-        <h3 class="h2 section-title" style="font-size:24px">Get up to 50% off all Kashmir Tour Packages!!</h3>
-        <p class="hero-text" style="margin-bottom:10px;margin-top:5px">Your Kashmir Dream Trip is just a button click away. <b>Whatsapp or Call Now for Best Deals</b></p>
-
-          <div class="hero-content">
-
-            <div class="btn-group">
-
-              <a href="https://api.whatsapp.com/send/?phone=917006893950&text&type=phone_number&app_absent=0" target="_blank" onclick="gtag_report_conversion2()">
-                <ul class="btn btn-primary location-card" >
-                    <li style="padding-left:2em; padding-right:2em">
-                      <ion-icon size="large" name="logo-whatsapp"></ion-icon>
-                    </li>
-
-                    <li style="font-size:15px">
-                      Whatsapp : 7006893950
-                    </li>
-              </ul>
-              </a>
-
-              <a href="tel:917006893950" onclick="gtag_report_conversion3()">
-              <ul class="btn btn-outline location-card">
-                    <li style="padding-left:2em; padding-right:2.32em">
-                      <ion-icon size="large" class="location contact-icon" name="call"> </ion-icon>
-                    </li>
-
-                    <li style="font-size:15px; color:black">
-                      Call now : 7006893950
-                    </li>
-              </ul>
-                </a>
-
-            </div>
-          </div>
-          </div>
-
-  <!-- Page Header-->
-
-       <div class="container">
-    <div class="row">
-
-      <div class="col-lg-8 col-md-10">
-
-    <section class="section about" style="padding-bottom:0px;padding-top:10px">
-
-            <div class="about-content"  style="margin-bottom:0px">
-
-              {% if not message: %}
-              <p class="section-subtitle question" style="font-size:26px">Get Your Free Kashmir Travel Plan!</p>
-              <h2 class="h2 section-title" style="font-size:24px">Get up to 50% off all Kashmir Tour Packages! This limited-time offer ends soon.</h2>
-              <p class="hero-text" style="margin-bottom:0px;margin-top:10px">
-              Fill out the form below, and our travel experts will design a custom itinerary just for you!
-            </p>
-              {% else: %}
-              <p class="section-subtitle question" style="font-size:26px">We will contact you shortly.</p>
-              <h2 class="h2 section-title contact" style="font-size:24px">Thank you for your enquiry</h2>
-              {% endif %}
-
-            </div>
-
-    </section>
-
-
-<!-- Main Content-->
-
-
-
-          <form action="{{ url_for('landing_page') }}" method="post" class="form" role="form" onsubmit="gtag_report_conversion()">
-        <input name="csrf_token" type="hidden" value="IjJmZmQ0NGQ1YzJjYjhiMjhjZWZkZTFlZTlkODg5YjlhOTVlMDcyMmEi.ZslxFw.OILTPRkIpUDWPiV0f6NE8TA2_x8">
-
-    <div class="mb-3 required"><label class="form-label" for="name">Name (optional)</label>
-                        <input class="form-control" name="name" type="text" value="">
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="email_address">Email Address (optional)</label>
-                        <input class="form-control" name="email_address" type="text" value="">
-
-        </div>
-
-    <div class="mb-3 required"><label class="form-label" for="phone">Phone*</label>
-                        <input class="form-control" name="phone" required="" type="number" value=""
-                               oninvalid="alert('Please input a valid phone number.')">
-
-        </div>
-
-
-            <input class="btn btn-primary btn-md" name="submit" type="submit" value="Plan your Trip now">
-
-    </form>
-      </div>
-
-
-      <div class="col-lg-4 col-md-8 contact-table mx-auto" style="padding-top:40px; padding-bottom:30px">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/contact-bg2.jpg'); background-repeat: no-repeat;
-  background-size: 100% 100%;">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="call"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">7006893950</p>
-                    </li>
-            </ul>
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="mail"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">info@wanderwelltravels.in</p>
-                    </li>
-            </ul>
-            <ul class="location-card">
-                    <li>
-                      <ion-icon class="location contact-icon" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <p class="contact-info">Inderhama, Burzahama near Power Station, Hazratbal, Srinagar, Jammu and Kashmir, 190006</p>
-                    </li>
-            </ul>
-
-              <ul class="social-list social-icons">
-
-          <li>
-            <a href="https://www.facebook.com/wanderwelltravels" target="_blank" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://twitter.com/@wanderwelltrvls" target="_blank" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.instagram.com/wanderwell.travels?igsh=eGphZmx2OXhtOTJx&utm_source=qr" target="_blank" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href=https://business.google.com/n/9068413222876130316/profile?hl=en-GB&fid=6323489742240405653 target="_blank" class="social-link">
-              <ion-icon name="logo-google"></ion-icon>
-            </a>
-          </li>
-        </ul>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
 
 {% if not message: %}
     <!-- Modal -->
