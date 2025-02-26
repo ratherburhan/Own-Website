@@ -7,7 +7,15 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String
 import os
 import mailtrap as mt
-import requests
+# import requests
+
+
+reviews = [{'author_name': 'Ubair Pandith', 'profile_photo_url': 'https://lh3.googleusercontent.com/a-/ALV-UjW7weMKnKHXRlmdSb9EdmocCZzoQsla4HcKoQwBYsQTAFwUkB1j=s128-c0x00000000-cc-rp-mo', 'rating': 5, 'text': 'Service provided was great and they have very humble staff. Hotels provided were worth more than the price paid and driver-cum-guide was very knowledgeable. 5 Star in every aspect. Each and every aspect of our Kashmir trip was well organized. It’s one of the best Travel Agencies in Kashmir if not the best. Kudos to the whole team, keep it up!!'},
+           {'author_name': 'Saima Lone', 'profile_photo_url': 'https://lh3.googleusercontent.com/a-/ALV-UjV6hcMqeGfkIL46j2_1xEJBOyN_z4tupe5VYUuU5K69WizqcWwY=s128-c0x00000000-cc-rp-mo', 'rating': 5, 'text': 'Nice experience with Wanderwell Travels. Our package was budget friendly for 6 nights and 7 days, car was well maintained, driver was polite and experienced. Hotels, houseboat, hospitality and food were very good. We are happy and have nice memories of our Kashmir trip. Thank you so much Wanderwell Travels.'},
+           {'author_name': 'Danish Bhat', 'profile_photo_url': 'https://lh3.googleusercontent.com/a/ACg8ocLomwAwA3zbLRcU6xAP3bZ9_4mMoRdZpDDukB4LbSejvevpmw=s128-c0x00000000-cc-rp-mo', 'rating': 5, 'text': 'Best travel consultant in J&K.Highly recommended.'},
+           {'author_name': 'Bablo kumar', 'profile_photo_url': 'https://lh3.googleusercontent.com/a/ACg8ocJfVDPrCydMNm_gk044aqZCP1DslysMLLHY_vX553Hi8dtsig=s128-c0x00000000-cc-rp-mo', 'rating': 5, 'text': 'Delightful and great experience with Wanderwell Travels. We are sincerely thankful  for making excellent arrangements for our memorable Kashmir visit. Our tour manager namely Burhan Rather was very helpful and cooperative throughout our travel. We visited Srinagar, Pahalgam, Gulmarg and Sonamarg. We had a very good and memorable trip.'},
+           {'author_name': 'Santosh Yadav', 'profile_photo_url': 'https://lh3.googleusercontent.com/a/ACg8ocLwKd-CQ-zNRSuzh2bOwFnkMj2rJPRF4q4ydypVyBGB5dKEySA=s128-c0x00000000-cc-rp-mo', 'rating': 5, 'text': 'Recently we had booked for Kashmir trip... Good hotels.. good food.. good hospitality.. and a very good driver cum guide to spend 5-6 days..will surely recommend others..'}]
+
 
 place_id = os.environ.get('PLACE_ID')
 google_api_key = os.environ.get('GOOGLE_API_KEY')
@@ -64,7 +72,7 @@ def show_year():
 @app.route('/')
 def home():
     popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
-    reviews = fetch_google_reviews()
+    # reviews = fetch_google_reviews()
     return render_template("index.html", popular_tours=popular_tours, reviews=reviews)
 
 
@@ -132,21 +140,21 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
     client.send(mail)
 
 
-def fetch_google_reviews():
-    url = (f"https://maps.googleapis.com/maps/api/place/details/json?place_id={place_id}"
-           f"&fields=reviews&key={google_api_key}")
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        return data.get("result", {}).get("reviews", [])
-    return []
+# def fetch_google_reviews():
+#     url = (f"https://maps.googleapis.com/maps/api/place/details/json?place_id={place_id}"
+#            f"&fields=reviews&key={google_api_key}")
+#     response = requests.get(url)
+#     if response.status_code == 200:
+#         data = response.json()
+#         return data.get("result", {}).get("reviews", [])
+#     return []
 
 
 @app.route("/landing_page", methods=["GET", "POST"])
 def landing_page():
     result = db.session.execute(db.select(Tour).where(Tour.destination == "kashmir"))
     tours = result.scalars().all()
-    reviews = fetch_google_reviews()
+    # reviews = fetch_google_reviews()
     if request.method == "POST":
         data = request.form
         name = data["name"]
