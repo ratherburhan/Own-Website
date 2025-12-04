@@ -85,9 +85,10 @@
 
     <script>
       gtag('config', 'AW-16577810937/B9itCJ38-IAaEPmj9eA9', {
-        'phone_conversion_number': '7006893950'
+        'phone_conversion_number': '+91-7006893950'
       });
     </script>
+
 
     <style>
         /* ===== RESET & BASE ===== */
@@ -1276,7 +1277,7 @@
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ===== DYNAMIC CONTENT ENGINE (STAG SYSTEM) =====
         const CONTENT_DATA = {
-            "srinagar_leh_combo": {
+            "srinagarleh": {
             "headline": "The Great Himalayan Crossover: Srinagar to Leh Combo Tours",
             "subhead": "Experience the transition from Green Valleys to Cold Deserts. Permits & SUVs included.",
             "faqs": [
@@ -1294,7 +1295,7 @@
               { "q": "Is it crowded in May?", "a": "May is peak season. We recommend booking at least 1 month in advance to secure the best hotels." }
             ]
           },
-          "destination_focused": {
+          "destination": {
             "headline": "The Golden Triangle: Gulmarg, Pahalgam & Sonamarg",
             "subhead": "Customized itineraries covering Kashmir’s most iconic hill stations.",
             "faqs": [
@@ -1303,7 +1304,7 @@
               { "q": "How many days are needed to cover all three destinations?", "a": "We recommend a minimum of 5 days to cover Gulmarg, Pahalgam, and Sonamarg comfortably." }
             ]
           },
-          "srinagar_city": {
+          "srinagar": {
             "headline": "Soul of Srinagar: Houseboats, Heritage & Mughal Gardens",
             "subhead": "Stay on the water, explore the old city, and witness the Zabarwan range.",
             "faqs": [
@@ -1319,7 +1320,7 @@
               { "q": "Is the itinerary flexible?", "a": "100%. Our luxury packages are completely bespoke to your preferences and timings." }
             ]
           },
-          "vaishno_devi_combo": {
+          "vaishno": {
             "headline": "Faith Meets Beauty: Vaishno Devi Darshan + Kashmir Tour",
             "subhead": "Seamless transfers from Katra to the Valley. Spiritual peace and natural beauty combined.",
             "faqs": [
@@ -1501,8 +1502,7 @@
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'conversion', {
                             'send_to': 'AW-16577810937/bGZFCI6r9cwZEPmj9eA9',  // ⚠️ REPLACE THIS with your actual Conversion ID & Label
-                            'value': 1.0,
-                            'currency': 'INR'
+                            'event_callback': callback
                     });
                     console.log("Google Ads Conversion fired successfully");
                     }
