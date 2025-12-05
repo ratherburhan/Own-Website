@@ -42,7 +42,8 @@
       };
       gtag('event', 'conversion', {
           'send_to': 'AW-16577810937/bGZFCI6r9cwZEPmj9eA9',
-          'event_callback': callback
+          'value': 1000.0,      // Hardcoded value
+          'currency': 'INR'     // Hardcoded currency
       });
       return false;
     }
@@ -878,7 +879,7 @@
                         </button>
                     </div>
 
-                    <div class="float-card">
+                    <div class="float-card" id="hero-form">
                         <div class="card-header">
                             <h3>Get Your Dream Kashmir Package</h3>
                             <p>Fill details below & get instant quote</p>
@@ -923,7 +924,7 @@
         </div>
     </section>
 
-    <section class="section bg-white">
+    <section class="section bg-white" id="customer-testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>Trusted by 500+ Happy Travelers</h2>
@@ -985,7 +986,7 @@
         </div>
     </section>
 
-    <section class="section bg-gray">
+    <section class="section bg-gray" id="popular-packages">
         <div class="container">
             <div class="section-title">
                 <h2>Popular Kashmir Packages</h2>
@@ -994,7 +995,7 @@
 
             <div class="grid grid-3">
                 <div class="package">
-                    <img src="{{ url_for('static', filename='assets/images/kashmir.webp') }}" alt="Pahalgam Horse" class="package-img" loading="lazy">
+                    <img src="{{ url_for('static', filename='assets/images/popular-10.webp') }}" alt="Pahalgam Horse" class="package-img" loading="lazy">
                     <div class="package-content">
                         <div class="package-badges">
                             <span class="badge badge-green">Bestseller</span>
@@ -1052,7 +1053,7 @@
                 </div>
 
                 <div class="package">
-                    <img src="{{ url_for('static', filename='assets/images/popular-10.webp') }}" alt="Kashmir Couple" class="package-img" loading="lazy">
+                    <img src="{{ url_for('static', filename='assets/images/kashmir.webp') }}" alt="Kashmir Couple" class="package-img" loading="lazy">
                     <div class="package-content">
                         <div class="package-badges">
                             <span class="badge badge-pink">Romantic</span>
@@ -1091,6 +1092,137 @@
         </div>
     </section>
 
+    <section class="section bg-white" id="destinations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Destinations of Kashmir</h2>
+                <p>Explore the breathtaking landscapes that make Kashmir paradise on earth</p>
+            </div>
+
+            <div class="grid grid-3">
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/popular-5.webp') }}" alt="Gulmarg" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Gulmarg – Snow-Capped Peaks</h3>
+                        <p class="feature-text">Experience the thrill of Gulmarg, where you can ski on powdery slopes, enjoy breathtaking views from the Gondola, or simply walk through its beautiful meadows.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/kashmir.webp') }}" alt="Sonamarg" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Sonamarg – The Valley of Gold</h3>
+                        <p class="feature-text">With its towering peaks and pristine rivers, Sonamarg is a nature lover's dream. Trek, camp, or just relax in this tranquil paradise.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/popular-10.webp') }}" alt="Pahalgam" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Pahalgam – The Peaceful Escape</h3>
+                        <p class="feature-text">Known for its lush greenery, serene rivers, and peaceful atmosphere, Pahalgam offers a perfect mix of relaxation and outdoor exploration.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/srinagar.webp') }}" alt="Srinagar" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Srinagar – Heart of Kashmir</h3>
+                        <p class="feature-text">From the serene Dal Lake to the magnificent Mughal Gardens. Enjoy a Shikara ride, explore Shankaracharya Temple, and indulge in authentic cuisine.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/doodhpathri.webp') }}" alt="Doodhpathri" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Doodhpathri – The Milk Valley</h3>
+                        <p class="feature-text">Escape to Doodhpathri, a serene valley with vast meadows, flowing streams, and breathtaking views—a true hidden gem in Kashmir.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/yousmarg.webp') }}" alt="Yousmarg" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Yousmarg – Your Tranquil Retreat</h3>
+                        <p class="feature-text">A quiet paradise surrounded by dense forests and majestic mountains. Perfect for those seeking solitude, natural beauty, and peace.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/gurez.webp') }}" alt="Gurez Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Gurez – Offbeat Destination</h3>
+                        <p class="feature-text">Nestled in the heart of Kashmir, Gurez is a hidden gem. With pristine rivers and snow-capped peaks, it offers a serene escape into untouched beauty.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/bangus.webp') }}" alt="Bangus Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Bangus – Valley of Fairy Tales</h3>
+                        <p class="feature-text">Kashmir's best-kept secret. Lush green meadows, vibrant flora, and crystal-clear streams create a picturesque haven that feels like a dream.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/vaishno.webp') }}" alt="Vaishno Devi" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Vaishno Devi – Spiritual Journey</h3>
+                        <p class="feature-text">One of the most revered pilgrimages in India. Nestled in the Trikuta Mountains, this holy shrine is a symbol of faith and devotion.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/tulail.webp') }}" alt="Tulail Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Tulail Valley – The Hidden Realm</h3>
+                        <p class="feature-text">A remote and pristine valley beyond Gurez, offering untouched natural beauty, traditional wooden houses, and a glimpse into a simpler way of life.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/tosamaidan.webp') }}" alt="Tosa Maidan" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Tosa Maidan – The King's Meadow</h3>
+                        <p class="feature-text">A vast, historic meadow surrounded by dense forests and snow-capped peaks. Perfect for trekking, camping, and experiencing panoramic natural grandeur.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/warwan.webp') }}" alt="Warwan Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Warwan Valley – Rugged & Remote</h3>
+                        <p class="feature-text">For the true adventurer, Warwan offers isolation, stunning waterfalls, and rugged landscapes. A challenging yet rewarding destination for trekkers.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/keran.webp') }}" alt="Keran Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Keran Valley – On the Edge of Beauty</h3>
+                        <p class="feature-text">Located on the banks of the Kishanganga River along the LoC, Keran boasts lush green forests, charming wooden houses, and serene riverside views.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/sinthan-top.webp') }}" alt="Sinthan Top" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Sinthan Top – The Mountain Pass</h3>
+                        <p class="feature-text">A high-altitude pass offering breathtaking 360-degree views of both Kashmir and Jammu divisions. Famous for its year-round snow and scenic drive.</p>
+                    </div>
+                </div>
+
+                <div class="feature" style="text-align: left; padding: 0; overflow: hidden; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <img src="{{ url_for('static', filename='assets/images/lolab.webp') }}" alt="Lolab Valley" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+                    <div style="padding: 1.5rem;">
+                        <h3 class="feature-title font-playfair" style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #1f2937;">Lolab Valley – The Land of Love</h3>
+                        <p class="feature-text">A beautiful oval-shaped valley known for its dense forests, natural springs, and warm hospitality. A perfect spot for a peaceful and authentic Kashmiri experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="faqSection" class="section bg-white" style="display: none;">
         <div class="container">
             <div class="faq-section">
@@ -1100,7 +1232,7 @@
         </div>
     </section>
 
-    <section class="section bg-gray">
+    <section class="section bg-gray" id="why-us">
         <div class="container">
             <div class="section-title">
                 <h2>Why Choose Wanderwell Travels?</h2>
@@ -1502,7 +1634,8 @@
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'conversion', {
                             'send_to': 'AW-16577810937/bGZFCI6r9cwZEPmj9eA9',  // ⚠️ REPLACE THIS with your actual Conversion ID & Label
-                            'event_callback': callback
+                            'value': 1000.0,      // Hardcoded value
+                            'currency': 'INR'     // Hardcoded currency
                     });
                     console.log("Google Ads Conversion fired successfully");
                     }
