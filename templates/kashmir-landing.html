@@ -41,7 +41,7 @@
         }
       };
       gtag('event', 'conversion', {
-          'send_to': 'AW-16577810937/bGZFCI6r9cwZEPmj9eA9',
+          'send_to': 'AW-16577810937/mC3dCKLog84bEPmj9eA9',
           'value': 1000.0,      // Hardcoded value
           'currency': 'INR'     // Hardcoded currency
       });
@@ -994,7 +994,7 @@
             </div>
 
             <div class="grid grid-3">
-                <div class="package">
+                <div class="package" id="bestseller-package">
                     <img src="{{ url_for('static', filename='assets/images/popular-10.webp') }}" alt="Pahalgam Horse" class="package-img" loading="lazy">
                     <div class="package-content">
                         <div class="package-badges">
@@ -1002,7 +1002,7 @@
                             <span style="color: #fbbf24;">★★★★★ (4.9)</span>
                         </div>
                         <h3 class="package-title">Classic Kashmir Experience</h3>
-                        <p class="package-subtitle">4N/5D/ • Srinagar • Dal Lake • Gulmarg • Pahalgam</p>
+                        <p class="package-subtitle">4N/5D • Srinagar • Gulmarg • Pahalgam</p>
                         <ul class="package-features">
                             <li>✓ Deluxe Houseboat Stay</li>
                             <li>✓ Shikara Ride & Mughal Gardens</li>
@@ -1023,20 +1023,20 @@
                     </div>
                 </div>
 
-                <div class="package">
+                <div class="package" id="family-package">
                     <img src="{{ url_for('static', filename='assets/images/popular-5.webp') }}" alt="Gulmarg Snow" class="package-img" loading="lazy">
                     <div class="package-content">
                         <div class="package-badges">
-                            <span class="badge badge-orange">Adventure</span>
+                            <span class="badge badge-orange">Family</span>
                             <span style="color: #fbbf24;">★★★★★ (4.8)</span>
                         </div>
-                        <h3 class="package-title">Kashmir Adventure Special</h3>
-                        <p class="package-subtitle">5N/6D • Gulmarg • Sonamarg • Pahalgam • Adventure</p>
+                        <h3 class="package-title">Kashmir Family Delight</h3>
+                        <p class="package-subtitle">5N/6D • Comfort • Nature • Bonding • Safe</p>
                         <ul class="package-features">
-                            <li>✓ Gulmarg Gondola Experience</li>
+                            <li>✓ Private/Exclusive Vehicle</li>
                             <li>✓ All meals & transfers</li>
                             <li>✓ Shikara Ride & Mughal Gardens</li>
-                            <li>✓ Premium Hotel Stays</li>
+                            <li>✓ Premium Hotels & Spacious Houseboat</li>
                         </ul>
                         <div class="package-footer">
                             <div class="package-price">
@@ -1052,7 +1052,7 @@
                     </div>
                 </div>
 
-                <div class="package">
+                <div class="package" id="romantic-package">
                     <img src="{{ url_for('static', filename='assets/images/kashmir.webp') }}" alt="Kashmir Couple" class="package-img" loading="lazy">
                     <div class="package-content">
                         <div class="package-badges">
@@ -1633,7 +1633,7 @@
                     // Check if Google Tag is loaded, then fire the conversion
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'conversion', {
-                            'send_to': 'AW-16577810937/bGZFCI6r9cwZEPmj9eA9',  // ⚠️ REPLACE THIS with your actual Conversion ID & Label
+                            'send_to': 'AW-16577810937/mC3dCKLog84bEPmj9eA9',  // ⚠️ REPLACE THIS with your actual Conversion ID & Label
                             'value': 1000.0,      // Hardcoded value
                             'currency': 'INR'     // Hardcoded currency
                     });
