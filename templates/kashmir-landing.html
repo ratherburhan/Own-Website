@@ -820,35 +820,39 @@
         .mt-8 { margin-top: 2rem; }
         .hidden { display: none; }
 
-        /* ===== TOP NOTIFICATION BANNER ===== */
-        .top-notification-bar {
-            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #1e3a8a 100%);
+        /* ===== FLIGHT & PICKUP STRIP (Replaces Top Banner) ===== */
+        .flight-assist-banner {
+            background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%);
             color: #ffffff;
             text-align: center;
-            padding: 0.85rem 1rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            top: 0;
-            z-index: 2000; /* Ensures it stays above everything else */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            line-height: 1.5;
+            padding: 2.5rem 1rem; /* Larger padding for better visibility */
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
         }
 
-        /* Highlighted Text Style */
-        .top-bar-highlight {
-            color: #fbbf24; /* Gold/Amber color matches your star ratings */
+        .flight-assist-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .flight-highlight {
+            color: #fbbf24; /* Gold/Amber */
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            white-space: nowrap; /* Keeps key phrases together */
         }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
-            .top-notification-bar {
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
-                text-align: left; /* Easier to read long text on mobile */
+            .flight-assist-banner {
+                padding: 2rem 1rem;
+                text-align: left; /* Easier reading on mobile */
+            }
+            .flight-assist-content {
+                font-size: 1rem;
             }
         }
 
@@ -968,17 +972,6 @@
     </style>
 </head>
 <body>
-
-    <div class="top-notification-bar">
-    <div class="container">
-        <i class="fas fa-plane-arrival" style="margin-right: 8px; color: #93c5fd;"></i>
-        Arriving from <strong>Delhi, Mumbai, Kolkata, Ahmedabad, Pune, Bangalore, Hyderabad, Chennai?</strong>
-        We offer <span class="top-bar-highlight">FREE Airport/Railway Pickup & Drop</span> at Srinagar & Jammu.
-        <span style="display: inline-block; margin-left: 5px; opacity: 0.9; font-size: 0.9em;">
-            (We don’t sell tickets, but provide <span style="text-decoration: underline; text-decoration-color: #fbbf24;">free flight assistance</span> for the cheapest rates!)
-        </span>
-    </div>
-    </div>
 
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -1401,6 +1394,19 @@
         </div>
     </section>
 
+    <div class="flight-assist-banner">
+    <div class="flight-assist-content">
+        <i class="fas fa-plane-arrival" style="font-size: 1.5rem; margin-right: 10px; color: #93c5fd; vertical-align: middle;"></i>
+        <span style="vertical-align: middle;">
+            Arriving from <strong>Delhi, Mumbai, Bangalore, Hyderabad, Kolkata, Pune, Chennai or Ahmedabad?</strong>
+            We offer <span class="flight-highlight">FREE Airport Pickup & Drop</span> at Srinagar & Jammu.
+        </span>
+        <div style="margin-top: 0.75rem; font-size: 0.95em; opacity: 0.95; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 0.75rem;">
+            <i class="fas fa-info-circle" style="color: #fbbf24;"></i>
+            We don’t sell tickets, but we provide <span style="text-decoration: underline; text-decoration-color: #fbbf24;">free flight assistance</span> to help you find the cheapest rates!
+        </div>
+    </div>
+    </div>
 
     <section class="section bg-gray">
     <div class="container">
@@ -1674,7 +1680,7 @@
               { "q": "Do you arrange the Inner Line Permits for Ladakh?", "a": "Yes, we handle all permit requirements for Kashmir, Kargil, and Ladakh." },
               { "q": "Is the Srinagar-Leh highway open?", "a": "The highway usually opens in May and closes by November. We only book when the pass is officially safe." },
               { "q": "What vehicle is provided for this terrain?", "a": "We strictly use high-ground clearance SUVs (Innova/Xylo/Scorpio) for the Srinagar-Leh stretch." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "summer": {
@@ -1684,7 +1690,7 @@
               { "q": "When is the best time for the Tulip Festival?", "a": "The festival is usually active from late March to mid-April, depending on the bloom." },
               { "q": "Is AC required in Kashmir during summer?", "a": "While days are pleasant, nights are cool. AC is generally not required, but available in our premium packages." },
               { "q": "Is it crowded in May?", "a": "May is peak season. We recommend booking at least 1 month in advance to secure the best hotels." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "destination": {
@@ -1694,7 +1700,7 @@
               { "q": "Can we do a day trip to Sonamarg?", "a": "Yes, Sonamarg is a perfect day trip from Srinagar (approx 2.5 hours one way)." },
               { "q": "Do you help with Gondola booking in Gulmarg?", "a": "Absolutely. Gondola tickets sell out fast; we assist in booking them as soon as your package is confirmed." },
               { "q": "How many days are needed to cover all three destinations?", "a": "We recommend a minimum of 5 days to cover Gulmarg, Pahalgam, and Sonamarg comfortably." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "srinagar": {
@@ -1703,7 +1709,7 @@
             "faqs": [
               { "q": "Is staying on a Houseboat safe?", "a": "Yes, our partner houseboats are docked in safe zones on Dal and Nigeen lakes with 24/7 staff." },
               { "q": "What does a local sightseeing tour include?", "a": "It covers Nishat Garden, Shalimar Bagh, Shankaracharya Temple, and a Shikara ride." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "luxury": {
@@ -1712,7 +1718,7 @@
             "faqs": [
               { "q": "Which 5-star properties do you book?", "a": "We partner with The Lalit, Vivanta by Taj, Khyber (Gulmarg), and luxury houseboats." },
               { "q": "Is the itinerary flexible?", "a": "100%. Our luxury packages are completely bespoke to your preferences and timings." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "vaishno": {
@@ -1722,7 +1728,7 @@
               { "q": "Do you provide pick-up from Katra Railway Station?", "a": "Yes, we pick you up directly from Katra or Jammu station/airport." },
               { "q": "How long is the drive from Katra to Srinagar?", "a": "It takes approximately 7-9 hours by road. We can also arrange a break journey in Patnitop." },
               { "q": "Can we visit Shiv Khori along with this?", "a": "Yes, we can add a day to your itinerary for Shiv Khori before heading to Kashmir." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "general": {
@@ -1730,9 +1736,8 @@
             "subhead": "Authorized local experts. Best prices guaranteed for Hotels, Cabs, and Houseboats.",
             "faqs": [
               { "q": "Are you a local agency?", "a": "Yes, we are based in Srinagar, ensuring you get on-ground support 24/7." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" },
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." },
               { "q": "Is it safe to travel to Kashmir now?", "a": "Kashmir is witnessing record tourism. It is very safe for tourists, and we ensure you stay in secure zones." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
             ]
           },
           "couple": {
@@ -1741,7 +1746,7 @@
             "faqs": [
               { "q": "Do you provide honeymoon inclusions?", "a": "Yes, we include a honeymoon cake, flower bed decoration, and milk/saffron arrangement on the first night." },
               { "q": "Can we get a photography session?", "a": "We can arrange a professional photographer for a couple's shoot in traditional attire." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "family": {
@@ -1751,7 +1756,7 @@
               { "q": "Is it safe for kids and elderly parents?", "a": "100% safe. We assign our most patient drivers for families and choose hotels with easy accessibility." },
               { "q": "Do you have family suites?", "a": "Yes, we offer interconnecting rooms and family cottages in Pahalgam and Gulmarg." },
               { "q": "Is medical help available nearby?", "a": "Srinagar has excellent medical facilities, and major tourist spots have first-aid centers." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "duration": {
@@ -1760,7 +1765,7 @@
             "faqs": [
               { "q": "Is 3 nights enough for Kashmir?", "a": "3 nights is tight but enough for a quick Srinagar & Gulmarg trip. We recommend 5+ nights for a full experience." },
               { "q": "Can we extend our stay after booking?", "a": "Subject to hotel availability, we can certainly extend your transport and stay arrangements." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "winter": {
@@ -1769,7 +1774,7 @@
             "faqs": [
               { "q": "Will there be snow in December?", "a": "Gulmarg usually has snow by mid-December. Sonamarg becomes inaccessible, but Pahalgam is beautiful." },
               { "q": "Are the hotels heated?", "a": "Yes, all our winter packages strictly use hotels with central heating or electric blankets." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           },
           "offbeat": {
@@ -1785,7 +1790,7 @@
               { "q": "Where is Lolab Valley located and is it worth visiting?", "a": "Located in Kupwara, it is known as the 'Land of Love and Beauty'. It is perfect for travelers who want to see untouched rural Kashmir, paddy fields, and dense forests away from commercial hubs." },
               { "q": "Will we find snow at Sinthan Top in summer?", "a": "Yes, Sinthan Top is one of the few places in Kashmir where you are almost guaranteed to find snow walls even in June and July. It connects the Kashmir Valley to Kishtwar." },
               { "q": "Can we stay overnight in Doodhpathri?", "a": "Accommodation options are very limited (mostly JKTDC huts). It is best enjoyed as a day trip from Srinagar, taking about 2 hours one way to reach the 'Valley of Milk'." },
-              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control."" }
+              { "q": "Do you offer land-only packages?", "a": "Yes, we specialize exclusively in land packages (Hotel + Transport) to ensure you pay zero agency commission on airfare. While we don't sell tickets, we provide full flight assistance—identifying the best connections and fares so you can book directly with the airline for maximum savings and control." }
             ]
           }
         };
