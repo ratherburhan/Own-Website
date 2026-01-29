@@ -40,42 +40,42 @@ ckeditor = CKEditor(app)
 Bootstrap5(app)
 
 
-class Base(DeclarativeBase):
-    pass
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
-db = SQLAlchemy(model_class=Base)
-db.init_app(app)
+# class Base(DeclarativeBase):
+#     pass
+#
+#
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI')
+# db = SQLAlchemy(model_class=Base)
+# db.init_app(app)
 
 
 # CONFIGURE TABLES
-class Tour(db.Model):
-    __tablename__ = "tours"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    title: Mapped[str] = mapped_column(String(250), nullable=False)
-    location: Mapped[str] = mapped_column(String(250), nullable=False)
-    time: Mapped[str] = mapped_column(String(250), nullable=False)
-    price: Mapped[str] = mapped_column(String(250), nullable=False)
-    img_url: Mapped[str] = mapped_column(String(250), nullable=False)
-    days: Mapped[str] = mapped_column(Integer, nullable=False)
-    destination: Mapped[str] = mapped_column(String(250), nullable=False)
-    popularity: Mapped[str] = mapped_column(Integer, nullable=False)
-    day1: Mapped[str] = mapped_column(String(3000), nullable=False)
-    day2: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day3: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day4: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day5: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day6: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day7: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day8: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day9: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day10: Mapped[str] = mapped_column(String(3000), nullable=True)
-    day11: Mapped[str] = mapped_column(String(3000), nullable=True)
+# class Tour(db.Model):
+#     __tablename__ = "tours"
+#     id: Mapped[int] = mapped_column(Integer, primary_key=True)
+#     title: Mapped[str] = mapped_column(String(250), nullable=False)
+#     location: Mapped[str] = mapped_column(String(250), nullable=False)
+#     time: Mapped[str] = mapped_column(String(250), nullable=False)
+#     price: Mapped[str] = mapped_column(String(250), nullable=False)
+#     img_url: Mapped[str] = mapped_column(String(250), nullable=False)
+#     days: Mapped[str] = mapped_column(Integer, nullable=False)
+#     destination: Mapped[str] = mapped_column(String(250), nullable=False)
+#     popularity: Mapped[str] = mapped_column(Integer, nullable=False)
+#     day1: Mapped[str] = mapped_column(String(3000), nullable=False)
+#     day2: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day3: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day4: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day5: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day6: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day7: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day8: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day9: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day10: Mapped[str] = mapped_column(String(3000), nullable=True)
+#     day11: Mapped[str] = mapped_column(String(3000), nullable=True)
 
 
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 
 @app.context_processor
@@ -85,25 +85,32 @@ def show_year():
 
 @app.route('/')
 def home():
-    popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
-    # reviews = fetch_google_reviews()
-    return render_template("index.html", popular_tours=popular_tours, reviews=reviews)
+    # popular_tours = db.session.execute(db.select(Tour).where(Tour.popularity < 4)).scalars().all()
+    # # reviews = fetch_google_reviews()
+    # return render_template("index.html", popular_tours=popular_tours, reviews=reviews)
+    return render_template("index.html", reviews=reviews)
 
 
-@app.route('/show_tours')
+# @app.route('/show_tours')
+# def show_tours():
+#     destination = request.args.get("destination")
+#     result = db.session.execute(db.select(Tour).where(Tour.destination == destination))
+#     tours = result.scalars().all()
+#     return render_template("show_tours.html", tours=tours, destination=destination.title())
+
+@app.route("/show_tours")
 def show_tours():
-    destination = request.args.get("destination")
-    result = db.session.execute(db.select(Tour).where(Tour.destination == destination))
-    tours = result.scalars().all()
-    return render_template("show_tours.html", tours=tours, destination=destination.title())
+    # Logic removed. The browser handles the "destination" parameter now.
+    return render_template("show_tours.html")
 
 
 @app.route('/tour_details')
 def tour_details():
-    tour_id = request.args.get('tour_id')
-    result = db.get_or_404(Tour, tour_id)
-    print(result.title)
-    return render_template("tour_details.html", tour=result)
+    # tour_id = request.args.get('tour_id')
+    # result = db.get_or_404(Tour, tour_id)
+    # print(result.title)
+    # return render_template("tour_details.html", tour=result)
+    return render_template("tour_details.html")
 
 
 @app.route('/destinations')
@@ -173,8 +180,8 @@ def send_mail(name, email, phone, adults, children, accommodation, user_message)
 
 @app.route("/landing_page", methods=["GET", "POST"])
 def landing_page():
-    result = db.session.execute(db.select(Tour).where(Tour.destination == "kashmir"))
-    tours = result.scalars().all()
+    # result = db.session.execute(db.select(Tour).where(Tour.destination == "kashmir"))
+    # tours = result.scalars().all()
     # reviews = fetch_google_reviews()
     # if request.method == "POST":
     #     data = request.form
@@ -189,7 +196,8 @@ def landing_page():
     #     return render_template("kashmir-landing.html", message=True, tours=tours, destination="Kashmir",
     #                            reviews=reviews)
 
-    return render_template("kashmir-landing.html", message=False, tours=tours, destination="Kashmir", reviews=reviews)
+    # return render_template("kashmir-landing.html", message=False, tours=tours, destination="Kashmir", reviews=reviews)
+    return render_template("kashmir-landing.html", message=False, reviews=reviews)
 
 
 @app.route('/submit-lead', methods=['POST'])

@@ -114,229 +114,126 @@
       </section>
 
 
-      <!--
-        - #POPULAR
-      -->
+      <section class="section popular">
+  <div class="container">
+    <p class="section-subtitle">Featured Tours</p>
+    <h2 class="h2 section-title">Most Popular Tours</h2>
 
- <section class="section popular">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
-      <div class="container">
-        <p class="section-subtitle">Featured Tours</p>
+      <div id="carousel-loader" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
 
-          <h2 class="h2 section-title">Most Popular Tours</h2>
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-inner" id="carousel-content" style="display: none;">
 
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <div class="cards-wrapper">
+            <ul class="popular-list" id="slide-1-list">
+              </ul>
+          </div>
+        </div>
 
-      <div class="cards-wrapper">
+        <div class="carousel-item" data-bs-interval="2000">
+          <div class="cards-wrapper">
+            <ul class="popular-list" id="slide-2-list">
+              </ul>
+          </div>
+        </div>
 
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 1: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
+        <div class="carousel-item">
+          <div class="cards-wrapper">
+            <ul class="popular-list" id="slide-3-list">
+              </ul>
+          </div>
+        </div>
 
       </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
     </div>
-
-    <div class="carousel-item" data-bs-interval="2000">
-      <div class="cards-wrapper">
-
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 2: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
-
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <div class="cards-wrapper">
-        <ul class="popular-list">
-
-            {% for tour in popular_tours: %}
-              {% if tour.popularity == 3: %}
-
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </div>
-            </li>
-
-          {% endif %}
-        {% endfor %}
-
-        </ul>
-    </div>
-
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+</section>
 
-</div>
-</div>
-      </div>
-  </section>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    // reusable function to generate card HTML
+    function createCardHtml(tour) {
+        // Fallback for missing image
+        const imgUrl = tour.img_url ? tour.img_url : '/static/assets/images/default.jpg';
+
+        return `
+        <li>
+          <div class="popular-card">
+            <figure class="card-banner">
+              <a href="/tour_details?tour_id=${tour.id}">
+                <img src="${imgUrl}" width="740" height="518" loading="lazy" alt="${tour.title}" class="img-cover">
+              </a>
+              <span class="card-badge">
+                <ion-icon name="time-outline"></ion-icon>
+                <time datetime="P12D">${tour.time}</time>
+              </span>
+            </figure>
+
+            <div class="card-content">
+              <div class="card-wrapper">
+                <div class="card-price">From ₹${tour.price}</div>
+                <div class="card-rating">
+                  <ion-icon name="airplane-outline"></ion-icon>
+                  <ion-icon name="bed"></ion-icon>
+                  <ion-icon name="car"></ion-icon>
+                  <ion-icon name="restaurant"></ion-icon>
+                  <ion-icon name="glasses"></ion-icon>
+                </div>
+              </div>
+
+              <h3 class="card-title">
+                <a href="/tour_details?tour_id=${tour.id}">${tour.title}</a>
+              </h3>
+
+              <ul class="location-card">
+                <li><ion-icon class="location" name="location"></ion-icon></li>
+                <li><address class="card-location">${tour.location}</address></li>
+              </ul>
+            </div>
+          </div>
+        </li>`;
+    }
+
+    // Main Execution
+    fetch('/static/data/tours.json')
+        .then(response => response.json())
+        .then(tours => {
+            // Filter Data
+            const pop1 = tours.filter(t => t.popularity === 1);
+            const pop2 = tours.filter(t => t.popularity === 2);
+            const pop3 = tours.filter(t => t.popularity === 3);
+
+            // Inject Data into specific Slides
+            document.getElementById('slide-1-list').innerHTML = pop1.map(createCardHtml).join('');
+            document.getElementById('slide-2-list').innerHTML = pop2.map(createCardHtml).join('');
+            document.getElementById('slide-3-list').innerHTML = pop3.map(createCardHtml).join('');
+
+            // UI Cleanup
+            document.getElementById('carousel-loader').style.display = 'none';
+            document.getElementById('carousel-content').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error loading popular tours:', error);
+        });
+});
+</script>
 
 
 
@@ -765,6 +662,66 @@
 
     </article>
   </main>
+
+<!--{% block scripts %}-->
+
+<!--<script>-->
+<!--document.addEventListener("DOMContentLoaded", function() {-->
+<!--    const container = document.getElementById('popular-tours-container');-->
+
+<!--    // 1. Fetch the master data-->
+<!--    fetch('/static/data/tours.json')-->
+<!--        .then(response => response.json())-->
+<!--        .then(tours => {-->
+<!--            // 2. FILTER: This replaces "WHERE popularity < 4"-->
+<!--            // We select tours where popularity is 1, 2, or 3-->
+<!--            const popularTours = tours.filter(tour => tour.popularity < 4);-->
+
+<!--            // 3. Generate HTML-->
+<!--            let htmlContent = '';-->
+
+<!--            if (popularTours.length === 0) {-->
+<!--                container.innerHTML = '<p class="text-center">No popular tours found.</p>';-->
+<!--                return;-->
+<!--            }-->
+
+<!--            popularTours.forEach(tour => {-->
+<!--                // Determine image (fallback if empty)-->
+<!--                const img = tour.img_url ? tour.img_url : '/static/assets/images/default.jpg';-->
+
+<!--                // Build the Card HTML (Copy your existing card design here)-->
+<!--                // Note: We use `tour.id` to link to the details page we built previously-->
+<!--                htmlContent += `-->
+<!--                <div class="col">-->
+<!--                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"-->
+<!--                         style="background-image: url('${img}'); background-size: cover;">-->
+<!--                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">-->
+<!--                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">${tour.title}</h3>-->
+<!--                            <ul class="d-flex list-unstyled mt-auto">-->
+<!--                                <li class="me-auto">-->
+<!--                                    <small>₹${tour.price}</small>-->
+<!--                                </li>-->
+<!--                                <li class="d-flex align-items-center">-->
+<!--                                    <small>${tour.days} Days</small>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                            <a href="/tour_details?tour_id=${tour.id}" class="stretched-link"></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>`;-->
+<!--            });-->
+
+<!--            // 4. Inject into DOM-->
+<!--            container.innerHTML = htmlContent;-->
+<!--        })-->
+<!--        .catch(error => {-->
+<!--            console.error('Error loading tours:', error);-->
+<!--            container.innerHTML = '<p class="text-danger text-center">Could not load tours.</p>';-->
+<!--        });-->
+<!--});-->
+<!--</script>-->
+
+<!--{% endblock %}-->
 
 
 {% endblock %}

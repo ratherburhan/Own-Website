@@ -2,261 +2,129 @@
 
 {% block content %}
 
-<!--
-        - #POPULAR
-      -->
-<div class="container px-4 py-5" id="custom-cards">
-  <h2 class="pb-2 border-bottom h2 section-title">Tour Plan</h2>
-
-  <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-4 py-5">
-      <div class="col w-100">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('/static/assets/images/unsplash.jpg');">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ tour.title }}</h2>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#cash-coin"></use></svg>
-                <small>From ₹{{ tour.price }}</small>
-              </li>
-              <li class="d-flex align-items-center me-3">
-                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#geo-alt-fill"></use></svg>
-                <small>{{ tour.location }}</small>
-              </li>
-              <li class="d-flex align-items-center">
-                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#clock-fill"></use></svg>
-                <small>{{ tour.time }}</small>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  </div>
+<div id="loader" class="container py-5 text-center">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 </div>
 
+<div id="tour-content" style="display: none;">
 
-<div class="container">
-  <p class="section-subtitle">Detailed Itinerary</p>
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 border-bottom h2 section-title">Tour Plan</h2>
 
-  <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        {% set list1 = tour.day1.split('%') %}
-        {{ list1[0] }}
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list1[1] }}
-      </div>
+        <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-4 py-5">
+            <div class="col w-100">
+                <div id="hero-card" class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-position: center; background-size: cover; background-image: url('/static/assets/images/unsplash.jpg');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 id="t-title" class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold"></h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#cash-coin"></use></svg>
+                                <small id="t-price"></small>
+                            </li>
+                            <li class="d-flex align-items-center me-3">
+                                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#geo-alt-fill"></use></svg>
+                                <small id="t-location"></small>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <svg class="bi me-2" width="2em" height="2em" fill="white"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#clock-fill"></use></svg>
+                                <small id="t-time"></small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        {% set list2 = tour.day2.split('%') %}
-        {{ list2[0] }}
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list2[1] }}
-      </div>
-    </div>
-  </div>
 
-  <div class="accordion-item">
-    <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        {% set list3 = tour.day3.split('%') %}
-        {{ list3[0] }}
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list3[1] }}
-      </div>
+    <div class="container">
+        <p class="section-subtitle">Detailed Itinerary</p>
+        <div class="accordion" id="accordionItinerary">
+            </div>
     </div>
-  </div>
 
-    {% if tour.days > 3: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-        {% set list4 = tour.day4.split('%') %}
-        {{ list4[0] }}
-      </button>
-    </h2>
-    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list4[1] }}
-      </div>
+    <div class="container px-4 py-5" id="icon-grid">
+        <h2 class="pb-2 border-bottom">Tour Amenities</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+            <div class="col d-flex align-items-start">
+                <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#credit-card"></use></svg>
+                <div><h4 class="fw-bold mb-0">Accepts Credit Cards</h4></div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#p-circle-fill"></use></svg>
+                <div><h4 class="fw-bold mb-0">Car Parking</h4></div>
+            </div>
+            </div>
     </div>
-  </div>
-    {% endif %}
 
-    {% if tour.days > 4: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFive">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-        {% set list5 = tour.day5.split('%') %}
-        {{ list5[0] }}
-      </button>
-    </h2>
-    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list5[1] }}
-      </div>
+    <div class="container pb-5">
+        <a href="{{ url_for('contact') }}" class="btn btn-primary book-button">Book Now</a>
     </div>
-  </div>
-    {% endif %}
-
-  {% if tour.days > 5: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSix">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-        {% set list6 = tour.day6.split('%') %}
-        {{ list6[0] }}
-      </button>
-    </h2>
-    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list6[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-  {% if tour.days > 6: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSeven">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-        {% set list7 = tour.day7.split('%') %}
-        {{ list7[0] }}
-      </button>
-    </h2>
-    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list7[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-  {% if tour.days > 7: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingEight">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-        {% set list8 = tour.day8.split('%') %}
-        {{ list8[0] }}
-      </button>
-    </h2>
-    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list8[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-    {% if tour.days > 8: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingNine">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-        {% set list9 = tour.day9.split('%') %}
-        {{ list9[0] }}
-      </button>
-    </h2>
-    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list9[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-    {% if tour.days > 9: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTen">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-        {% set list10 = tour.day10.split('%') %}
-        {{ list10[0] }}
-      </button>
-    </h2>
-    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list10[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
-    {% if tour.days > 10: %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingEleven">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
-        {% set list11 = tour.day11.split('%') %}
-        {{ list11[0] }}
-      </button>
-    </h2>
-    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        {{ list11[1] }}
-      </div>
-    </div>
-  </div>
-  {% endif %}
 
 </div>
-</div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Extract tour_id from URL (e.g. ?tour_id=5)
+        const params = new URLSearchParams(window.location.search);
+        const tourId = parseInt(params.get('tour_id'));
 
-  <div class="container px-4 py-5" id="icon-grid">
-    <h2 class="pb-2 border-bottom">Tour Amenities</h2>
+        // 2. Fetch the JSON data
+        fetch('/static/data/tours.json')
+            .then(response => response.json())
+            .then(data => {
+                // 3. Find the specific tour
+                const tour = data.find(item => item.id === tourId);
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#credit-card"></use></svg>
-        <div>
-          <h4 class="fw-bold mb-0">Accepts Credit Cards</h4>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#p-circle-fill"></use></svg>
-        <div>
-          <h4 class="fw-bold mb-0">Car Parking</h4>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/laundry.svg') }}" alt="Bootstrap">
-        <div>
-          <h4 class="fw-bold mb-0">Laundry service</h4>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/reservations.svg') }}" alt="Bootstrap">
-        <div>
-          <h4 class="fw-bold mb-0">Reservations</h4>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/restaurant.svg') }}" alt="Bootstrap">
-        <div>
-          <h4 class="fw-bold mb-0">Restaurant</h4>
-        </div>
-      </div>
-      <div class="col d-flex align-items-start">
-        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#wifi"></use></svg>
-        <div>
-          <h4 class="fw-bold mb-0">Wireless Internet</h4>
-        </div>
-      </div>
-    </div>
-  </div>
+                if (tour) {
+                    // 4. Inject Hero Data
+                    document.getElementById('t-title').textContent = tour.title;
+                    document.getElementById('t-price').textContent = `From ₹${tour.price}`;
+                    document.getElementById('t-location').textContent = tour.location;
+                    document.getElementById('t-time').textContent = tour.time;
 
-  <a href="{{ url_for('contact') }}" class="btn btn-primary book-button">Book Now</a>
+                    // 5. Build Itinerary Loop
+                    const accordion = document.getElementById('accordionItinerary');
+                    let html = '';
 
-</div>
+                    tour.itinerary.forEach((day, index) => {
+                        const isFirst = index === 0; // First item is expanded by default
+                        const collapseId = `collapse${index}`;
+                        const headingId = `heading${index}`;
+
+                        html += `
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="${headingId}">
+                                <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#${collapseId}"
+                                    aria-expanded="${isFirst}" aria-controls="${collapseId}">
+                                    ${day.day_title}
+                                </button>
+                            </h2>
+                            <div id="${collapseId}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}"
+                                aria-labelledby="${headingId}" data-bs-parent="#accordionItinerary">
+                                <div class="accordion-body">
+                                    ${day.day_desc}
+                                </div>
+                            </div>
+                        </div>`;
+                    });
+
+                    accordion.innerHTML = html;
+
+                    // 6. reveal content
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('tour-content').style.display = 'block';
+                } else {
+                    document.getElementById('loader').innerHTML = '<p class="text-danger">Tour details not found.</p>';
+                }
+            })
+            .catch(err => {
+                console.error("Error fetching tours:", err);
+                document.getElementById('loader').innerHTML = '<p class="text-danger">System Error: Could not load data.</p>';
+            });
+    });
+</script>
 
 {% endblock %}

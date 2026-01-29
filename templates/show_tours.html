@@ -2,71 +2,127 @@
 
 {% block content %}
 
-      <!--
-        - #POPULAR
-      -->
-
       <section class="section popular">
         <div class="container">
 
           <p class="section-subtitle">Featured Tours</p>
 
-          <h2 class="h2 section-title">{{ destination }} Tours</h2>
+          <h2 class="h2 section-title" id="page-title">Loading Tours...</h2>
 
-          <ul class="popular-list">
-            {% for tour in tours: %}
-            <li>
-              <div class="popular-card">
-
-                <figure class="card-banner">
-                  <a href="{{ url_for('tour_details', tour_id=tour.id) }}">
-                    <img src="{{ tour.img_url }}" width="740" height="518" loading="lazy"
-                      alt="tour card" class="img-cover">
-                  </a>
-
-                  <span class="card-badge">
-                    <ion-icon name="time-outline"></ion-icon>
-
-                    <time datetime="P12D">{{ tour.time }}</time>
-                  </span>
-                </figure>
-
-                <div class="card-content">
-
-                  <div class="card-wrapper">
-                    <div class="card-price">From ₹{{ tour.price }}</div>
-
-                    <div class="card-rating">
-                      <ion-icon name="airplane-outline"></ion-icon>
-                      <ion-icon name="bed"></ion-icon>
-                      <ion-icon name="car"></ion-icon>
-                      <ion-icon name="restaurant"></ion-icon>
-                      <ion-icon name="glasses"></ion-icon>
-
-                    </div>
-                  </div>
-
-                  <h3 class="card-title">
-                    <a href="{{ url_for('tour_details', tour_id=tour.id) }}">{{ tour.title }}</a>
-                  </h3>
-
-                  <ul class="location-card">
-                    <li>
-                      <ion-icon class="location" name="location"> </ion-icon>
-                    </li>
-
-                    <li>
-                      <address class="card-location">{{ tour.location }}</address>
-                    </li>
-                  </ul>
-
-                </div>
-
+          <div id="loader" class="text-center py-5">
+              <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
               </div>
-            </li>
-            {% endfor %}
-          </ul>
+          </div>
+
+          <ul class="popular-list" id="tours-container">
+             </ul>
+
+          <p id="no-results" class="text-center text-muted" style="display:none;">
+              No tours found for this destination.
+          </p>
+
         </div>
       </section>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Get Destination from URL (e.g., ?destination=kashmir)
+            const params = new URLSearchParams(window.location.search);
+            // Default to empty string if missing, handle case-insensitivity later
+            const destinationParam = params.get('destination');
+
+            // 2. Update Page Title
+            if (destinationParam) {
+                // Capitalize first letter for display (e.g., "kashmir" -> "Kashmir")
+                const displayTitle = destinationParam.charAt(0).toUpperCase() + destinationParam.slice(1);
+                document.getElementById('page-title').textContent = `${displayTitle} Tours`;
+            } else {
+                document.getElementById('page-title').textContent = "All Tours";
+            }
+
+            // 3. Fetch Data
+            fetch('/static/data/tours.json')
+                .then(response => response.json())
+                .then(tours => {
+                    const container = document.getElementById('tours-container');
+
+                    // 4. Filter Logic
+                    // matches tour.destination from JSON against URL param (case-insensitive)
+                    const filteredTours = destinationParam
+                        ? tours.filter(t => t.destination.toLowerCase() === destinationParam.toLowerCase())
+                        : tours; // Show all if no destination specified
+
+                    // Handle empty results
+                    if (filteredTours.length === 0) {
+                        document.getElementById('loader').style.display = 'none';
+                        document.getElementById('no-results').style.display = 'block';
+                        return;
+                    }
+
+                    // 5. Build HTML
+                    let html = '';
+                    filteredTours.forEach(tour => {
+                        const imgUrl = tour.img_url ? tour.img_url : '/static/assets/images/default.jpg';
+
+                        html += `
+                        <li>
+                          <div class="popular-card">
+
+                            <figure class="card-banner">
+                              <a href="/tour_details?tour_id=${tour.id}">
+                                <img src="${imgUrl}" width="740" height="518" loading="lazy"
+                                  alt="${tour.title}" class="img-cover">
+                              </a>
+
+                              <span class="card-badge">
+                                <ion-icon name="time-outline"></ion-icon>
+                                <time>${tour.time}</time>
+                              </span>
+                            </figure>
+
+                            <div class="card-content">
+
+                              <div class="card-wrapper">
+                                <div class="card-price">From ₹${tour.price}</div>
+
+                                <div class="card-rating">
+                                  <ion-icon name="airplane-outline"></ion-icon>
+                                  <ion-icon name="bed"></ion-icon>
+                                  <ion-icon name="car"></ion-icon>
+                                  <ion-icon name="restaurant"></ion-icon>
+                                  <ion-icon name="glasses"></ion-icon>
+                                </div>
+                              </div>
+
+                              <h3 class="card-title">
+                                <a href="/tour_details?tour_id=${tour.id}">${tour.title}</a>
+                              </h3>
+
+                              <ul class="location-card">
+                                <li>
+                                  <ion-icon class="location" name="location"> </ion-icon>
+                                </li>
+                                <li>
+                                  <address class="card-location">${tour.location}</address>
+                                </li>
+                              </ul>
+
+                            </div>
+
+                          </div>
+                        </li>`;
+                    });
+
+                    // 6. Inject and Cleanup
+                    container.innerHTML = html;
+                    document.getElementById('loader').style.display = 'none';
+                })
+                .catch(err => {
+                    console.error("Error loading tours:", err);
+                    document.getElementById('loader').innerHTML = '<p class="text-danger">Error loading data.</p>';
+                });
+        });
+      </script>
 
 {% endblock %}
