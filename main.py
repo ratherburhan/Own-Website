@@ -100,7 +100,6 @@ def home():
 
 @app.route("/show_tours")
 def show_tours():
-    # Logic removed. The browser handles the "destination" parameter now.
     return render_template("show_tours.html")
 
 

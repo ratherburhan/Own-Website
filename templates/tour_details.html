@@ -45,18 +45,47 @@
     </div>
 
     <div class="container px-4 py-5" id="icon-grid">
-        <h2 class="pb-2 border-bottom">Tour Amenities</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
-            <div class="col d-flex align-items-start">
-                <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#credit-card"></use></svg>
-                <div><h4 class="fw-bold mb-0">Accepts Credit Cards</h4></div>
-            </div>
-            <div class="col d-flex align-items-start">
-                <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#p-circle-fill"></use></svg>
-                <div><h4 class="fw-bold mb-0">Car Parking</h4></div>
-            </div>
-            </div>
+    <h2 class="pb-2 border-bottom">Tour Amenities</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#credit-card"></use></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Accepts Credit Cards</h4>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#p-circle-fill"></use></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Car Parking</h4>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/laundry.svg') }}" alt="Bootstrap">
+        <div>
+          <h4 class="fw-bold mb-0">Laundry service</h4>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/reservations.svg') }}" alt="Bootstrap">
+        <div>
+          <h4 class="fw-bold mb-0">Reservations</h4>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <img class="bi text-muted flex-shrink-0 me-3" width="28" src="{{ url_for('static', filename='/assets/svg/restaurant.svg') }}" alt="Bootstrap">
+        <div>
+          <h4 class="fw-bold mb-0">Restaurant</h4>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="/static/assets/svg/bootstrap-icons.svg#wifi"></use></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Wireless Internet</h4>
+        </div>
+      </div>
     </div>
+  </div>
 
     <div class="container pb-5">
         <a href="{{ url_for('contact') }}" class="btn btn-primary book-button">Book Now</a>
